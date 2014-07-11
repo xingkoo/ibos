@@ -1,0 +1,29 @@
+/**
+ * 公文模块中文语言包
+ * @version $id$
+ */
+
+var L = L || {};
+L.DOC = {
+	SURE_DEL_DOC: '确认要删除选中的公文吗？该操作无法恢复',
+	SIGNED_THIS_DOC: '本公文您已签收',
+	CANCEL_TEMPLATE_TIP: "是否清空编辑器内容",
+	USE_TEMPLATE_TIP: "使用模板将清空原有内容，是否确定？",
+	HAS_NOT_SIGN_DOC: "您还没签收该公文，确定签收吗？",
+	CAN_NOT_REVOKE_OPERATE: "您的操作将无法撤消，确认审核通过？",
+	APPROVAL_SUCCESS: "审核成功！",
+	DOC_ROLLBACK: "退回",
+	REASON_IS_EMPTY: "退回理由不能为空！",
+	APPROVAL_NEXT_TIME: "下次签收",
+
+
+	MOVETO: "移到至",
+
+	// 新建公文
+	INTRO: {
+		DOC_ADD: {
+			SELECT_TPL: "点这儿选择公文模板格式<br />(可以通过 后台管理>模块>模块管理>公文设置 里 添加/修改 )",
+			PURVIEW: "1、“发送权限”里选中的人会需要“签收” <br />2、“抄送”里选中的人会收到“通知”"
+		},
+	}
+}

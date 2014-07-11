@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "cn.com.ibos.push"
+		versionCode = "10" 
+        version     = "0.1.0" > <!-- 注释：应用唯一ID --> <!-- 注释：应用版本-->
+    <name>IBOS协同办公平台</name><!-- 注释：应用名称，显示在移动终端桌面上和应用Logo一起 -->
+    <description><!-- 注释：应用描述 -->
+        IBOS协同办公平台
+    </description>
+    <author href="http://www.ibos.com.cn" email="Aeolus@ibos.com.cn"> 
+        Aeolus <!-- 注释：作者信息 -->
+    </author>
+    <gap:platform name="ios" />
+	<gap:platform name="android" />
+	<!-- <gap:platform name="winphone" /> -->
+
+	<preference name="phonegap-version" value="3.3.0" /> <!-- 注释：版本-->
+	<preference name="fullscreen" value="false" />
+   	<preference name="webviewbounce" value="false" />
+   	
+	<preference name="SplashScreen" value="screen" />
+
+	<icon src="icon.png" />
+    <icon src="res/icon/ios/icon-57-2x.png" gap:role="default" /> <!-- 注释：应用Logo，显示在移动终端桌面上和应用名称一起 -->
+
+	<gap:splash src="splash.png" />
+	<gap:splash src="res/screen/ios/screen-iphone-portrait.png" gap:platform="ios" width="320" height="480" />
+	<gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios" width="640" height="960" />
+	<gap:splash src="res/screen/ios/screen-iphone-portrait-568h-2x.png" gap:platform="ios" width="640" height="1136" /><!-- 注释： 程序启动时显示图像-->
+
+	<gap:plugin name="org.apache.cordova.device" />
+	<gap:plugin name="org.apache.cordova.camera" />
+	<gap:plugin name="org.apache.cordova.media-capture" />
+	<gap:plugin name="org.apache.cordova.file" />
+	<gap:plugin name="org.apache.cordova.file-transfer" />
+	<gap:plugin name="org.apache.cordova.geolocation" />
+	<gap:plugin name="org.apache.cordova.media" />
+	<gap:plugin name="org.apache.cordova.dialogs" />
+	<gap:plugin name="org.apache.cordova.splashscreen" /> 
+	<gap:plugin name="org.apache.cordova.console" />
+
+	<gap:plugin name="org.apache.cordova.inappbrowser" />
+
+	<gap:plugin name="com.performanceactive.plugins.camera" /> <!-- 注释：自定义摄像头-->
+	<gap:plugin name="com.synconset.imagepicker" /> <!-- 注释：自定义多选图像插件-->
+	<gap:plugin name="com.kumbe.phonegap.zoom.zoomcontrol" /> <!-- 注释：安卓原生缩放-->
+	<gap:plugin name="com.phonegap.plugins.barcodescanner" /> <!-- 注释：二维码扫描-->
+	<gap:plugin name="com.phonegap.plugins.pushplugin" /> <!-- 注释：推送插件-->
+	<gap:plugin name="com.phonegap.plugin.statusbar" /> <!-- 注释：顶部状态栏-->
+	<gap:plugin name="com.phonegap.plugins.childbrowser" /> <!-- 注释：子浏览器-->
+	<gap:plugin name="ch.ti8m.documenthandler" /> <!-- 注释：文档浏览--> <!-- handleDocumentWithURL(successHandler, failureHandler, url) -->
+
+	<access origin="*" subdomains="true" />
+</widget>

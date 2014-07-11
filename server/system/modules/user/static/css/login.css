@@ -1,0 +1,118 @@
+/**
+ * login.css
+ * 个人中心样式
+ * @module User
+ * @type Layout
+ * @version $Id$
+ * @modified 2013-08-23
+ * @author Inaki
+ */
+html{ overflow: hidden;}
+body{ background: #B2C0D1; padding-top: 60px;}
+#bgwrap{
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+}
+#bg{ display: none; }
+
+.logo{ width: 400px; }
+.logo h1{ 
+	/*margin: 0;*/
+	font-size: 24px;
+	color: #FFF;
+	display: inline;
+	vertical-align: bottom;
+	padding-left: 10px;
+	font-weight: 700;
+}
+
+.footer{
+	position: absolute;
+	bottom: 0;
+	z-index: 10;
+	margin: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, .3);
+	border: 0 none;
+	background-color: #000\9;
+	filter: Alpha(opacity=50);
+}
+.copyright,
+.quick-link a{ color: #FFF; }
+
+.login-panel{
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+	position: relative;
+	z-index: 10;
+	margin-top: 70px;
+	margin-right: 20px;
+	padding-top: 20px;
+	width: 300px;
+	min-height: 320px;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+}
+.login-item { position: relative; margin-bottom: 30px; }
+.login-panel-footer{ min-height: 40px; _height: 40px; }
+
+input.input-large.lg-acc-input{ 
+	position: absolute;
+	margin: 1px 0 0 1px;
+	width: 130px;
+	min-height: 0;
+	height: 48px;
+	border: 0 none;
+	background: #FFF;
+	z-index: 5;
+}
+
+.lg-sign,
+.o-lg-user,
+.o-lg-lock,
+.o-lg-help,
+.o-lg-info,
+.o-lg-select{
+	background-image: url(../image/login.png);
+	background-repeat: no-repeat;
+}
+.o-lg-user,
+.o-lg-lock,
+.o-lg-help,
+.o-lg-info,
+.o-lg-select{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+}
+
+.has-focus .o-lg-user{ background-position: -20px 0; }
+.o-lg-lock{ background-position: -40px 0; }
+.has-focus .o-lg-lock{ background-position: -60px 0; }
+
+.o-lg-help{ 
+	position: absolute;
+	top: 17px;
+	right: 10px;
+	background-position: -80px 0; 
+}
+.o-lg-info{ background-position: -100px 0; }
+
+.o-lg-select{ background-position: -120px 0; }
+.operate-btn:hover .o-lg-select,
+.operate-btn:focus .o-lg-select{ background-position: -140px 0; }
+
+.lg-sign{
+	width: 200px;
+	height: 60px;
+	background-position: 0 -25px;
+}
+
+.lg-anc-title{ margin: 0; font-size: 14px; font-weight: 700; }
+.lg-anc-content{ height: 40px; overflow: hidden; }
+
+.input-group-error .input-acc-bg { border-color: #E26F50; }
+.input-group-correct .input-acc-bg { border-color: #7CB81C; }

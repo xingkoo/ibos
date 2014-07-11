@@ -1,0 +1,257 @@
+<div id="work_handle" class="panel" data-title="办理工作" data-nav="none" data-footer="footer_work_handle">
+	<form action="javascript:;" target="hidden_frame" method="post" id="form_work_handle">
+
+	<div>
+<!-- 		<ul class="tab work-handle-tab" data-node="fixedElem">
+			<li class="pressed" data-evt="workHandleScroll" data-param='"#work_handle_form"'>
+				<a href="javascript:;" >表单</a>
+			</li>
+			<li data-evt="workHandleScroll" data-param='"#work_handle_attach"'>
+				<a href="javascript:;">附件</a>
+			</li>
+			<li data-evt="workHandleScroll" data-param='"#work_handle_sign"'>
+				<a href="javascript:;">会签</a>
+			</li>
+			<li data-evt="workHandleScroll" data-param='"#work_handle_progress"'>
+				<a href="javascript:;">进度</a>
+			</li>
+		</ul> -->
+		<div class="work-handle-mainer" id="work_handle_mainer">
+			<!-- 表单 -->
+		</div>
+	</div>
+	</form>
+	<footer id="footer_work_handle"></footer>
+
+	<!-- Template: 附件 -->
+	<textarea id="work_handle_attach_tpl" class="hideim">
+		<ul class="list inset" data-node="workAttachBox">
+			<li>
+				<span class="label small black"><%=flowProgress%></span>
+				<%=flowType%>
+				<span class="flr xca"><%=realname%></span>
+			</li>
+			<li class="att">
+				<div class="att-icon">
+					<img src="images/filetype/<%=fileType%>.png" alt="<%=fileName%>" width="44" height="44">
+				</div>
+				<div class="att-content">
+					<h4><%=fileName%></h4>
+					<div class="att-desc"><%=fileTime%> <%=fileSize%></div>
+				</div>
+				<div class="att-op">
+					<a href="javascript:;" class="aoicon ao-trash-gray" data-evt="removeWorkAttach" data-param='{"aid": "<%=aid%>"}'></a>
+				</div>
+			</li>
+		</ul>
+	</textarea>
+
+	<!-- Template: 会签 -->
+	<textarea id="countersign_tpl" class="hideim">
+		<ul class="list inset" data-node="countersignBox" data-signid="<%=feedid%>">
+			<li>
+				<div class="media mgbs">
+					<div class="avatar">
+						<img src="<%=app.defaultUrl%>/<%=user['avatar_small']%>">
+					</div>
+					<div class="media-body">
+						<div class="mgbm">
+							<%=user['realname']%>
+							<span class="xca">发表于 <%=edittime%></span>
+						</div>
+						<div>
+							<span class="label small black"><%=processid%></span>
+							<%=name%>
+						</div>
+					</div>
+				</div>
+				<p data-node="countersignContent"><%=content%></p>
+			</li>
+			<% for(var key in attachment){ %>
+			<% 
+			var att = attachment[key]; 
+			if(att.filetype=="jpg"||att.filetype=="png"||att.filetype=="gif"){
+				att.filetype="photo";
+			}
+			%>
+			<li class="att">
+				<div class="att-icon">
+					<img src="images/filetype/<%=att.filetype%>.png" alt="<%=att.filename%>" width="44" height="44">
+				</div>
+				<div class="att-content">
+					<h4><%=att.filename%></h4>
+					<div class="att-desc"><%=att.dateline%> <%=att.filesize%></div>
+				</div>
+			</li>
+			<% } %>
+			<% if(user['uid']==app.user.uid){ %>
+			<!--li class="pdz bggrl">
+				<div class="cmflex sep">
+					<a href="javascript:;" class="cmflex-item cmflex-singlerow xca" data-evt="editWorkSign" data-param='{"signId": "<%=feedid%>"}'>
+						<i class="aoicon ao-edit-gray"></i>
+						编辑
+					</a>
+					<a href="javascript:;" class="cmflex-item cmflex-singlerow xca" data-evt="removeWorkSign" data-param='{"signId": "<%=feedid%>"}'>
+						<i class="aoicon ao-trash-gray" ></i>
+						删除
+					</a>
+				</div>
+			</li-->
+			<% } %>
+		</ul>
+	</textarea>
+
+	<!-- Template: 进度 -->
+	<textarea id="work_handle_progress_tpl" class="hideim">
+		<ul class="list inset <%= delivertime=="0" ? 'bgol': '' %>">
+			<li class="media">
+				<div class="media-costar">
+					<span class="label small <%= delivertime=="0" ? 'orange': 'black' %>"><%=flowprocess%></span>
+				</div>
+				<div class="media-body">
+					<h4 class="title mgbm">[<%=name%>] 由 [<%=opuser%>] 主办</h4>
+					<div class="xcn">
+						<% if(delivertime=="0") { %>
+							<p class="xco">执行中</p>
+							<p>持续：<%=timestr%></p>
+						<% } else { %>
+							<p>用时：<%=timestr%></p>
+							<p>开始：<%=processtime%></p>
+							<p>结束：<%=delivertime%></p>
+						<% } %>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</textarea>
+
+	<!-- Template: 主体内容 -->
+	<textarea id="work_handle_mainer_tpl" class="hideim">
+		<!-- 表单 -->
+		<div class="mgbs" id="work_handle_form">
+			<%= form %>
+			<!--
+			<div class="pdhs" id="work_handle_form_content">
+				<ul class="list inset">
+					<li>
+						<div>张小牛修复BUG(2013-10-11 12:20:15)</div>
+						<div class="content">
+							<p class="fss">[51] 加班登记</p>
+							<p class="fss">发起人：张小牛</p>
+							<p class="fss">发起时间：2013-10-11</p>
+						</div>
+						<button class="button small wf-vsf-btn" data-evt="viewSourceForm" data-param='{"runId": 1}'>
+							<i class="moicon mo-search-gray"></i>
+							查看原表
+						</button>
+					</li>
+					<li class="control-group bggrl xca">
+						<label>申请人</label>
+						<div class="controls">张小牛</div>
+					</li>
+					<li class="control-group bggrl xca">
+						<label>部门</label>
+						<div class="controls">协同项目部</div>
+					</li>
+					<li class="control-group bggrl xca">
+						<label>岗位</label>
+						<div class="controls">软件工程师</div>
+					</li>
+					<li class="control-group bggrl xca">
+						<label>开始时间</label>
+						<div class="controls">2013-10-09 09:21:02</div>
+					</li>
+					<li class="control-group bggrl xca">
+						<label>结束时间</label>
+						<div class="controls">2013-10-11 17:52:44</div>
+					</li>
+				</ul>
+				<ul class="list inset">
+					<li class="control-group bggrl xca">
+						<label>部门经理</label>
+						<div class="controls">郭小四</div>
+					</li>
+					<li class="control-group">
+						<label class="xcp">审批结果</label>
+						<div class="controls">
+							<input type="text" value="同意" name="approveresult" placement="填写内容...">
+						</div>
+					</li>
+					<li class="control-group">
+						<label class="xcp">审批意见</label>
+						<div class="controls">
+							<input type="text" value="" name="approveopinion" placement="填写内容...">
+						</div>
+					</li>
+				</ul>
+				<button class="button large button-block" data-evt="showFormNullTerm" data-param='{"runId": 1}'>显示表单空项</button>
+			</div>
+			-->
+		</div>
+		<!-- 附件 -->
+		<div class="mgbs" id="work_handle_attach">
+			<div class="panel-divider">附件</div>
+			<div class="pdhs" id="work_handle_attach_content">
+				<% for(var i = 0; i < attachs.length; i++) { %>
+					<%= $.template(document.getElementById("work_handle_attach_tpl").value, attachs[i]) %>
+				<% } %>
+<!-- 				<a href="javascript:;" class="upload-btn" data-evt="addWorkAttach" data-param='{"runId": <%= runId %>}'>
+					<i class="aoicon ao-upload-add"></i>
+					上传文件
+				</a>
+ -->
+			</div>
+			<input type="hidden" name="attachid" id="work_handle_attach_value">
+		</div>
+		<!-- 会签 -->
+		<div class="mgbs" id="work_handle_sign">
+			<div class="panel-divider">会签</div>
+			<div class="pdhs" id="work_handle_sign_content">
+				<div id="work_handle_sign_list">
+					<% for(var key in signs){ %>
+						<%= $.template(document.getElementById("countersign_tpl").value, signs[key]) %>
+					<% } %>
+				</div>
+				<% if(feedback){ %>
+				<!-- <button type="button" class="button large button-block orange" data-evt="addWorkSign" data-param='{"runId": <%= runId %>}'>我要会签</button> -->
+				<textarea name="content"><\/textarea>
+				<% } %>
+			</div>
+		</div>
+		<!-- 进度 -->
+		<div class="mgbs" id="work_handle_progress">
+			<div class="panel-divider">进度</div>
+			<div class="pdhs" id="work_handle_progress_content">
+				<% for(var key in progress){ %>
+					<%= $.template(document.getElementById("work_handle_progress_tpl").value, progress[key]) %>
+				<% } %>
+				<!--button type="button" class="button large button-block orange" data-evt="addWorkUrge" data-param='{"runId": <%= runId %>}'>超时催办提醒</button-->
+			</div>
+		</div>
+	</textarea>
+
+	<!-- Template: 底部工具条 -->
+	<textarea id="work_handle_footer_tpl" class="hideim">
+		<table class="footer-table">
+			<tr>
+				<% if(rollback) { %>
+				<td>
+					<button type="button" class="button black infoot" data-evt="workRollback" data-param='{ "runId": <%= runId %> }'>回退</button>
+				</td>
+				<% } %>
+				<td>
+					<button type="button" class="button black infoot" data-evt="workSaveForm" data-param='{ "runId": <%= runId %> }'>保存</button>
+				</td>
+				<td>
+				<% if(laststep) { %>
+					<button type="button" class="button blue infoot" data-evt="workDeal" data-param='{ "runId": <%= runId %> }'>办理完毕</button>
+				<% } else { %>
+					<button type="button" class="button blue infoot" data-evt="toForwardWork" data-param='{ "runId": <%= runId %> }'>转交</button>
+				<% } %>
+				</td>
+			</tr>
+		</table>
+	</textarea>
+</div>
+
+

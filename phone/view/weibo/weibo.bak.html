@@ -1,0 +1,356 @@
+<!--<div id="weibo" class="panel" data-header="header_weibo" data-nav="none" data-tab="navbar_weibo"> -->
+	<link rel="stylesheet" href="css/weibo.css">
+	<header id="header_weibo">
+		<a href="view/weibo/follower.html" class='button ao-user'></a>
+		<h1>微博首页</h1>
+		<a href="javascript:;" class='button ao-new'></a>
+	</header>
+	<!-- 刷新 -->
+	<div class="wb-loading" id="weibo_pulldown">
+		<img src="images/cm/loading.png" alt="读取中..." width="30" height="30">
+		<div class="wb-loading-body">
+			<strong>松开即可更新...</strong>
+			<p>最后更新: 今天 19:35</p>
+		</div>
+	</div>
+	<!-- 微博列表 -->
+	<div class="wb-ct">
+		<div data-node="feedList">
+			<!-- 微博:普通 -->
+			<div data-node="feedBox" class="wb-feed hide">
+				<div class="pds">
+					<!-- 个人信息 -->
+					<div class="media">
+						<div class="media-costar avatar">
+							<img src="http://ink.cc/avatar.php?uid=93&amp;size=middle&amp;engine=LOCAL" class="rds">
+						</div>
+						<div class="media-body">
+							<span class="wb-feed-ex">
+								<i class="ao14 ao-flock-lgray vat"></i>
+								分组可见
+							</span>
+							<div class="wb-feed-title">
+								<h4 class="wb-feed-un">张衡</h4>
+							</div>
+							<div class="fss xcn">
+								发送中...
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 微博内容 -->
+				<div class="wb-feed-ct bdbgr">
+					<p>
+					【怎样挑选适合自己的雪鞋？】<a href="#">@益动张翮</a>：传统两片式啊雪鞋包裹性好，力量能更好地传达给雪板，操控性更好。适合追求速度，追求体验的雪友。三篇式雪鞋穿着更舒适、轻松，可调节性强，适合自由式、休闲滑法的雪友。详细： <a href="#">http://t.cn/8k4NxBh </a>知乎圆桌「又到雪季」讨论正在进行： <a href="#">http://t.cn/8kLwh8B</a>
+					</p>
+				</div>
+				<!-- 快速工具条 -->
+				<div class="cmflex bggrl rdub sep">
+					<!-- 评论 -->
+					<a href="javascript:;" data-evt="feedComment" data-param='{ "feedId": 1 }' class="cmflex-item cmflex-singlerow xca">
+						<i class="ao16 ao-comment-gray"></i>
+						12
+					</a>
+					<!-- 转发 -->
+					<a href="javascript:;" data-evt="feedForward" data-param='{ "feedId": 1 }' class="cmflex-item cmflex-singlerow xca">
+						<i class="ao16 ao-forward-gray"></i>
+						2
+					</a>
+					<!-- 赞 -->
+					<a href="javascript:;" data-evt="feedDigg" data-param='{ "feedId": 1 }' class="cmflex-item cmflex-singlerow xca">
+						<i class="ao16 ao-digg-gray"></i>
+						5
+					</a>
+				</div>
+			</div>
+
+			<!-- 微博:图片内容 -->
+			<div data-node="feedBox" class="wb-feed hide">
+				<div class="pds">
+					<!-- 个人信息 -->
+					<div class="media">
+						<div class="media-costar avatar">
+							<img src="http://ink.cc/avatar.php?uid=93&amp;size=middle&amp;engine=LOCAL" class="rds">
+						</div>
+						<div class="media-body">
+							<span class="wb-feed-ex">
+								<i class="ao14 ao-flock-lgray vat"></i>
+								分组可见
+							</span>
+							<div class="wb-feed-title">
+								<h4 class="wb-feed-un">张衡</h4>
+							</div>
+							<div class="fss xcn">
+								<span class="xco">刚刚</span>
+								来自 IBOS
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 图片 -->
+				<div class="wb-feed-pic">
+					<img src="" alt="" width="480" height="200">
+				</div>
+				<!-- 微博内容 -->
+				<div class="wb-feed-ct bdbgr">
+					<p>
+					【怎样挑选适合自己的雪鞋？】<a href="#">@益动张翮</a>：传统两片式啊雪鞋包裹性好，力量能更好地传达给雪板，操控性更好。
+					</p>
+				</div>
+				<!-- 快速工具条 -->
+				<div class="cmflex bggrl rdub sep">
+					<!-- 评论 -->
+					<a href="javascript:;" class="cmflex-item cmflex-singlerow xca">
+						<i class="ao16 ao-comment-gray"></i>
+						12
+					</a>
+					<!-- 转发 -->
+					<a href="javascript:;" class="cmflex-item cmflex-singlerow xca">
+						<i class="ao16 ao-forward-gray"></i>
+						2
+					</a>
+					<!-- 赞 -->
+					<a href="javascript:;" class="cmflex-item cmflex-singlerow xca">
+						<i class="ao16 ao-digg-gray"></i>
+						5
+					</a>
+				</div>
+			</div>
+
+			<!-- 微博:转发 -->
+			<div data-node="feedBox" class="wb-feed hide">
+				<div class="pds">
+					<!-- 个人信息 -->
+					<div class="media">
+						<div class="media-costar avatar">
+							<img src="http://ink.cc/avatar.php?uid=93&amp;size=middle&amp;engine=LOCAL" class="rds">
+						</div>
+						<div class="media-body">
+							<div class="wb-feed-title">
+								<h4 class="wb-feed-un">张衡</h4>
+							</div>
+							<div class="fss xcn">
+								<span class="xco">刚刚</span>
+								来自 IBOS
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 微博内容 -->
+				<div class="wb-feed-ct bdbgr">
+					<p>
+						我转发了
+					</p>
+					<!-- 转发框 -->
+					<div class="wb-feed-fw">
+						<div class="wb-feed-pic">
+							<img src="" alt="" width="480" height="200">
+						</div>
+						<div class="wb-feed-ct">
+							<p>
+								我被转发了
+							</p>
+						</div>
+					</div>
+				</div>
+				<!-- 快速工具条 -->
+				<div class="cmflex bggrl rdub sep">
+					<!-- 评论 -->
+					<a href="javascript:;" class="cmflex-item cmflex-singlerow xca">
+						<i class="ao16 ao-comment-gray"></i>
+						12
+					</a>
+					<!-- 转发 -->
+					<a href="javascript:;" class="cmflex-item cmflex-singlerow xca">
+						<i class="ao16 ao-forward-gray"></i>
+						2
+					</a>
+					<!-- 赞 -->
+					<a href="javascript:;" class="cmflex-item cmflex-singlerow xca">
+						<i class="ao16 ao-digg-gray"></i>
+						5
+					</a>
+				</div>
+			</div>
+
+			<!-- 微博:定位信息 -->
+			<div data-node="feedBox" class="wb-feed hide">
+				<div class="pds">
+					<!-- 个人信息 -->
+					<div class="media">
+						<div class="media-costar avatar">
+							<img src="http://ink.cc/avatar.php?uid=93&amp;size=middle&amp;engine=LOCAL" class="rds">
+						</div>
+						<div class="media-body">
+							<div class="wb-feed-title">
+								<h4 class="wb-feed-un">张衡</h4>
+							</div>
+							<div class="fss xcn">
+								<span class="xco">刚刚</span>
+								来自 IBOS
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 微博内容 -->
+				<div class="wb-feed-ct bdbgr">
+					<p>
+					【怎样挑选适合自己的雪鞋？】<a href="#">@益动张翮</a>：传统两片式啊雪鞋包裹性好，力量能更好地传达给雪板，操控性更好。
+					</p>
+					<div class="wb-location">
+						<i class="ao16 ao-location-gray"></i>
+						广东省广州市天河区华景路
+					</div>
+				</div>
+				<!-- 快速工具条 -->
+				<div class="cmflex bggrl rdub sep">
+					<!-- 评论 -->
+					<a href="javascript:;" class="cmflex-item cmflex-singlerow xca">
+						<i class="ao16 ao-comment-gray"></i>
+						评论
+					</a>
+					<!-- 转发 -->
+					<a href="javascript:;" class="cmflex-item cmflex-singlerow xca">
+						<i class="ao16 ao-forward-gray"></i>
+						转发
+					</a>
+					<!-- 赞 -->
+					<a href="javascript:;" class="cmflex-item cmflex-singlerow xca">
+						<i class="ao16 ao-digg-gray"></i>
+						赞
+					</a>
+				</div>
+			</div>
+
+			<!-- 微博:公文动态 -->
+			<div data-node="feedBox" class="wb-feed hide">
+				<div class="pds">
+					<!-- 个人信息 -->
+					<div class="media">
+						<div class="media-costar avatar">
+							<img src="http://ink.cc/avatar.php?uid=93&amp;size=middle&amp;engine=LOCAL" class="rds">
+						</div>
+						<div class="media-body">
+							<div class="wb-feed-title">
+								<h4 class="wb-feed-un">张衡</h4>
+								发布了一篇公文
+							</div>
+							<div class="fss xcn">
+								11月29日15:13 来自 公文
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 微博内容 -->
+				<div class="wb-feed-ct">
+					<h3 class="wb-oafeed-title">公司小并不可怕，可怕的是不性感</h3>
+					<p>
+					做为一家小公司，初创公司，如何能够成长为一家大公司，小而美是远远不够的，更关键的还是在于这家公司在小的时候是不是方方面面看起来都足够性感。
+					</p>
+				</div>
+			</div>
+
+			<!-- 微博:新闻动态 -->
+			<div data-node="feedBox" class="wb-feed hide">
+				<div class="pds">
+					<!-- 个人信息 -->
+					<div class="media">
+						<div class="media-costar avatar">
+							<img src="http://ink.cc/avatar.php?uid=93&amp;size=middle&amp;engine=LOCAL" class="rds">
+						</div>
+						<div class="media-body">
+							<div class="wb-feed-title">
+								<h4 class="wb-feed-un">张衡</h4>
+								发布了一篇新闻
+							</div>
+							<div class="fss xcn">
+								11月29日15:13 来自 新闻
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 图片 -->
+				<div class="wb-feed-pic">
+					<img src="" alt="" width="480" height="200">
+				</div>
+				<!-- 微博内容 -->
+				<div class="wb-feed-ct">
+					<h3 class="wb-oafeed-title">公司小并不可怕，可怕的是不性感</h3>
+					<p>
+					做为一家小公司，初创公司，如何能够成长为一家大公司，小而美是远远不够的，更关键的还是在于这家公司在小的时候是不是方方面面看起来都足够性感。
+					</p>
+				</div>
+			</div>
+
+			<!-- 微博:工作流动态 -->
+			<div data-node="feedBox" class="wb-feed hide">
+				<div class="pds">
+					<!-- 个人信息 -->
+					<div class="media">
+						<div class="media-costar avatar">
+							<img src="http://ink.cc/avatar.php?uid=93&amp;size=middle&amp;engine=LOCAL" class="rds">
+						</div>
+						<div class="media-body">
+							<div class="wb-feed-title">
+								<h4 class="wb-feed-un">张衡</h4>
+								办理了一篇工作流
+							</div>
+							<div class="fss xcn">
+								11月29日15:13 来自 工作流
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 微博内容 -->
+				<div class="wb-feed-ct">
+					<h3 class="wb-oafeed-title">张衡加班登记(2014-03-09 09:32:11)</h3>
+					<p>
+					第四步：申请人查阅由Conrer主办；用时:21秒，开始于：2013-10-11 09:11，结束于：2013-10-11 09:11
+					</p>
+				</div>
+			</div>
+
+			<!-- 微博:日志动态 -->
+			<div data-node="feedBox" class="wb-feed hide">
+				<div class="pds">
+					<!-- 个人信息 -->
+					<div class="media">
+						<div class="media-costar avatar">
+							<img src="http://ink.cc/avatar.php?uid=93&amp;size=middle&amp;engine=LOCAL" class="rds">
+						</div>
+						<div class="media-body">
+							<div class="wb-feed-title">
+								<h4 class="wb-feed-un">张衡</h4>
+								发表了一篇工作日志
+							</div>
+							<div class="fss xcn">
+								11月29日15:13 来自 工作日志
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 微博内容 -->
+				<div class="wb-feed-ct">
+					<h3 class="wb-oafeed-title">4月18日 星期四工作日志</h3>
+					<p>
+					今天上午开始规划剩下需要做的工作，开始了重新设计的漫漫长路，对比以前主要改进有:1、考虑企业微博日常微博刷新不多的情况下默认显示5条评论，放出评论输入框，以提高社交互动为目的。2、筛选分类分为：迎新汇、表扬、投票、普通、状态5类型，来自模块发出的微博均为状态，话题不算在任何分类内。
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 加载更多 -->
+	<div class="wb-morebar hide">
+		加载中...
+	</div>
+
+<!-- </div> -->
+
+<script>
+	$LAB.script("js/weibo/weibo.js")
+	.wait(function(){
+		// Weibo.firstFeedId = "";
+		// Weibo.lastFeedId = "";
+	})
+	.script("js/weibo/weibohome.js");
+</script>

@@ -1,0 +1,15 @@
+<div data-title="查看公文" id="docs_view" class="panel bgw no-nav" data-nav="none" data-footer="none">
+	<div id="docsContent" class="view"></div>
+	<!-- Template -->
+	<textarea id="docsContentTpl" class="hideim">
+		<h2 class="view-title"><%=subject%></h2>
+		<details class="view-detail">
+			<summary><time><%=addtime%></time></summary>
+			<p>
+				发布人:<%=author%><br />
+				审核人:<%=approver%><br />
+			</p>
+		</details>
+		<div class="view-content"><%=core.util.replaceEditorSrc(content)%></div>
+	</textarea>
+</div>

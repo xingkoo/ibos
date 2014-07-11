@@ -1,0 +1,299 @@
+/**
+ * organization.css
+ * 组织架构
+ * @module Global
+ * @submodule Organization
+ * @type Layout
+ * @version $Id$
+ * @author Inaki
+ */
+.fsst{
+	font-size: 16px;
+}
+.o-org-enabled,
+.o-org-locked,
+.o-org-disabled,
+.o-org-all,
+
+.o-org-department,
+.o-org-user,
+.o-org-position{
+	background-image: url(../image/organization.png);
+	background-repeat: no-repeat;
+}
+
+.o-org-department,
+.o-org-user,
+.o-org-position{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+
+.active .o-org-department{ background-position: -20px 0;}
+.o-org-user{ background-position: -40px 0; }
+.active .o-org-user{ background-position: -60px 0; }
+.o-org-position{ background-position: -80px 0;}
+.active .o-org-position{ background-position: -100px 0;}
+
+.o-org-enabled{ background-position: 0 -40px; }
+.o-org-locked{ background-position: -40px -40px; }
+.o-org-disabled{ background-position: -80px -40px; }
+.o-org-all{ background-position: -120px -40px; }
+
+
+.org-dep-table{
+	background-color: #FFF;
+}
+.org-dep-table tbody td{
+	padding-top: 0;
+	padding-bottom: 0;
+	font-size: 12px;
+}
+.org-dep-name,
+.org-dep-btn{
+	color: #82939E;
+}
+.org-dep-name:hover,
+.org-dep-btn:hover{
+	color: #3497DB;
+	text-decoration: none;
+}
+.org-dep-operate{
+	display: none;
+	position: absolute;
+	top: -10px;
+	right: 10px;
+	width: 70px;
+}
+.org-dep-table.open .org-dep-operate{
+	right: 540px;
+}
+.org-dep-btn{
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.org-dep-table tr:hover .org-dep-operate{
+	display: block;
+}
+
+.org-dep-mainer{
+	position: relative;
+	min-height: 780px;
+	background-color: #FFF;
+	overflow: hidden;
+}
+.org-dep-mainer .waiting{ z-index: 11; }
+.org-dep-card{
+	position: absolute;
+	top: 0;
+	right: -541px;
+	padding: 20px 60px 20px 30px;
+	width: 450px;
+	border-left: 1px solid #EBEFF6;
+	border-bottom: 1px solid #EBEFF6;
+	background: #FDFDFD;
+	z-index: 10;
+	height:100%;
+}
+.org-dep-card-fold{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 100%;
+	background: url(../image/org_flex_btn.png) no-repeat 0 center;
+	cursor: pointer;
+}
+
+/**/
+.org-positon-table.table thead th,
+.org-positon-table.table td,
+.org-user-table.table thead th,
+.org-user-table.table td{
+	padding: 10px;
+	vertical-align: middle;
+}
+
+.org-limit{ 
+	padding-top: 20px;
+}
+.org-limit-header{
+	overflow: hidden;
+	background-color: #F8F8F8;
+	padding: 0 20px;
+}
+.org-limit-header h4{
+	font-size: 18px;
+	font-weight: 700;
+}
+.org-limit-header .btn{
+	margin-top: 5px;
+	width: 100px
+}
+.org-limit-entry{
+	margin-bottom: 20px;
+}
+.org-limit-list{
+	margin: -20px 0 20px -20px;
+}
+.org-limit-list:last-child{
+	margin-bottom: 0;
+}
+.org-limit-list li{
+	float: left;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+.org-limit-list li label{
+	-webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+	box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	display: block;
+	padding: 15px 10px;
+	width: 196px;
+	border: 1px solid #E6E6E7;
+	background: #FFF;
+	color: #82939E;
+	background: url(../image/icon_check.png) no-repeat -100px 0;
+}
+.org-limit-list li .active{
+	background-position: 185px -23px;
+}
+.org-limit-list .org-limit-privilege-wrap label{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.org-limit-list .org-limit-privilege{
+	float: right;
+	background-color: #FFF;
+}
+.org-limit-list .org-limit-privilege a{
+	margin-left: 10px;
+}
+
+.org-limit-setup .org-limit-list li label{
+	cursor: pointer;
+}
+.org-limit-setup .org-limit-list li label input{
+	position: absolute;
+	/*visibility: hidden;*/
+	opacity: 0;
+	outline: 0 none;
+	filter: Alpha(opacity=0);
+}
+.org-limit-setup .org-limit-list li label:hover{
+	text-decoration: none;
+	border-color: #3497DB;
+	background-position: 185px -23px;
+}
+.org-limit-setup .org-limit-list li .active,
+.org-limit-setup .org-limit-list li .active:hover{
+	color: #3497DB;
+	background-position: 185px 17px;
+}
+
+.org-ins-table{}
+.org-ins-table.table th, 
+.org-ins-table.table td{
+	vertical-align: middle;
+	padding: 10px 15px;
+}
+
+.org-member-list{
+	margin-left: -20px;
+	margin-top: -20px;
+}
+.org-member-list li{
+	-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 0 1px rgba(0, 0, 0, .1);
+	box-shadow: 0 0 1px rgba(0, 0, 0, .1);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	float: left;
+	margin-top: 20px;
+	margin-left: 20px;
+	padding: 10px;
+	width: 209px;
+	height: 70px;
+	border: 1px solid #ebeff6;
+	background-color: #fdfdfd;
+	position: relative;
+}
+.org-member-item-body{
+	display: inline-block;
+	padding: 5px;
+	margin-top: 5px;
+	width: 90px;
+	vertical-align: top;
+}
+.org-member-item-body .o-online{
+	position: absolute;
+	top: 30px;
+	right: 20px;
+	width: 16px;
+	height: 16px;
+	background: pink;
+}
+.org-member-list .org-member-add a{
+	display: block;
+	line-height: 70px;
+	text-align: center;
+	font-size: 14px;
+	color: #82939E;
+}
+.org-member-list .org-member-add a i{
+	font-size: 24px;
+	vertical-align: middle;
+}
+.org-member-list .org-member-add a:hover{
+	text-decoration: none;
+	color: #3497db;
+}
+.org-member-add:hover{
+	background-color: #f9fbff;
+}
+
+/* Privilege Level */
+.privilege-level{
+	display: inline-block;
+	text-align: center;
+}
+.privilege-level:hover{
+	text-decoration: none;
+}
+.privilege-level i{
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background-color: #FFF;
+	vertical-align: middle;
+	background: url(../image/pri_level.png) no-repeat;
+}
+.privilege-level p{
+	font-size: 12px;
+	color: #82939E;
+}
+.privilege-level:hover p{
+	color: #3497DB;
+}
+.privilege-level .level1{ background-position: -30px 0;}
+.privilege-level .level2{ background-position: -60px 0;}
+.privilege-level .level4{ background-position: -90px 0;}
+.privilege-level .level8{ background-position: -120px 0;}
+
+.privilege-level.disabled{
+	cursor: default;
+}
+.privilege-level.disabled:hover p{
+	color: #82939E;
+}
+.privilege-level.disabled .level1{ background-color: #CCC; }
+.privilege-level.disabled .level2{ background-color: #999; }
+.privilege-level.disabled .level4{ background-color: #666; }
+.privilege-level.disabled .level8{ background-color: #333; }

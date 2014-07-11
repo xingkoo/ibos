@@ -1,0 +1,35 @@
+<div id="news_view" class="panel" data-title="查看新闻" data-footer="none" data-nav="none">
+	<div id="newsContent" class="view"></div>
+	<textarea id="newsContentTpl" class="hideim">
+		<h2 class="view-title"><%=subject%></h2>
+		<details class="view-detail">
+			<summary><time><%=addtime%></time></summary>
+			<p>
+				发布人:<%=author%><br />
+				审核人:<%=approver%><br />
+			</p>
+		</details>
+		<div class="view-content"><%=core.util.replaceEditorSrc(content)%></div>
+		<%if(attachmentid != ""){%>
+		<!-- 附件排版 -->
+				<div class="pds">
+			<%for (var i in attach){%>
+					<ul class="att-list">
+						<li class="att" onclick="appSdk.browser.show('<%=app.defaultUrl%>/<%=attach[i].downurl%>')">
+							<div class="att-icon">
+								<img src="images/filetype/<%=attach[i].filetype%>.png" alt="" width="44" height="44">
+							</div>
+							<div class="att-content">
+								<h4><%=attach[i].filename%></h4>
+								<p class="att-desc"><%=attach[i].filesize%></p>
+							</div>
+							<div class="att-op">
+								<a href="<%=app.defaultUrl%>/<%=attach[i].downurl%>" class="aoicon ao-download-gray"></a>
+							</div>
+						</li>
+					</ul>
+			<%}%>
+				</div>
+		<%}%>
+	</textarea>
+</div>

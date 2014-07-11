@@ -1,0 +1,30 @@
+@import '../../css/base.css';
+@import '../../css/common.css';
+@import 'formdesigner.css';
+@import 'wf_form.css';
+
+/*ic:hover { border-color: red }*/
+
+/* 自定义表单样式 */
+
+table caption { margin: 10px auto; font: 400 32px/1.5 'Microsoft Yahei'; color: #333; border: 0 none;}
+table,
+table th,
+table td{ border-color: #58585C; color: #333;}
+.table th,
+.table td{ border: 0 none; }
+
+.grid-container input[disabled],
+.grid-container select[disabled],
+.grid-container textarea[disabled],
+.grid-container input[readonly],
+.grid-container select[readonly],
+.grid-container textarea[readonly],
+.grid-container fieldset[disabled] input,
+.grid-container fieldset[disabled] select,
+.grid-container fieldset[disabled] textarea{
+	background-color: #FFF;
+	border: 1px solid #DADFE6; 
+	color: #82939e; 
+	cursor: pointer; 
+}

@@ -1,0 +1,15 @@
+<div class="chat" id="msgView">
+	
+</div>
+
+<textarea style="display:none;" type="text/ibos-template" id="msgViewTpl">
+	<%if(ctime-msg.prevTime>600 && core.toDatetime(ctime) != core.toDatetime(msg.prevTime)){%><div class="timesep"> <%=core.toDatetime(ctime)%></div><%}%>
+	<div class="chat-item">
+		<div class="avatar">
+			<img src="images/ico/<%=module%>.png" alt="">
+		</div>
+		<div class="chat-bubble">
+			<%=title%>
+		</div>
+	</div>
+</textarea>

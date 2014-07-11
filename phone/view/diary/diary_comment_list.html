@@ -1,0 +1,39 @@
+<div id="diary_comment_list" class="panel" data-title="评阅日志" data-footer="none" data-nav="menu_diary" data-header="header_diary_comment">
+	<header id="header_diary_comment">
+		<a onclick='af.ui.toggleSideMenu()' class='button ao-menu'></a>
+		<h1>日志评阅</h1>
+		<a onclick='app.goHome()' class='button ao-home'></a>
+	</header>
+	<div id="reviewList">
+	</div>
+	<textarea class="hide" id="reviewTpl">
+	<div class="diary-comment-date">
+		<div class="direction-bar">
+			<a href="javascript:diary.loadReview('<%=prevAndNextDate.prev%>')">&lt;</a>
+			<input type="date" value="<%=dateWeekDay.year%>-<%=dateWeekDay.month%>-<%=dateWeekDay.day%>" style="opacity: 0.01" onblur="diary.loadReview(this.value)" onchange="if(!$.os.ios){diary.loadReview(this.value)}" />
+			<a href="javascript:diary.loadReview('<%=prevAndNextDate.next%>');">&gt;</a>
+		</div>
+		<div class="noti xac">
+			<span><%=dateWeekDay.year%>-<%=dateWeekDay.month%>-<%=dateWeekDay.day%> <%=dateWeekDay.weekday%></span>
+		</div>
+	</div>
+	<ul class="list list-active">
+	<%for(var i in data){
+	%>
+	<%{var thisUser = app.getUser(data[i].uid);}%>
+		<li>
+			<a href="javascript:;" onclick="diary.loadDiary(<%=data[i].diaryid%>)" class="media nochevron">
+				<div class="avatar">
+					<img src="<%=app.defaultUrl%>/<%=thisUser.avatar_small%>">
+				</div>
+				<div class="media-body brief">
+					<h4><%=thisUser.realname%></h4>
+					<div class="content"><%=data[i].content%></div>
+					<time class="time"><%=core.toDatetime(data[i].diarytime)%></time>
+				</div>
+			</a>
+		</li>
+	<%}%>
+	</ul>
+	</textarea>
+</div>

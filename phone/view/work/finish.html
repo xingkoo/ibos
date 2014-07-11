@@ -1,0 +1,38 @@
+<div id="work_finish" class="panel" data-header="header_work_finish" data-footer="none" data-nav="menu_work" data-title="已完成">
+	<header id="header_work_finish">
+		<a onclick='af.ui.toggleSideMenu()' class='button ao-menu'></a>
+		<h1>已完成</h1>
+		<a onclick="app.goHome();" class='button ao-home'></a>
+	</header>
+	<div>
+		<ul class="list list-active" id="work_finish_list">
+			<!-- Toolbar: (关注)|(取消关注) -->
+		</ul>
+	</div>
+	<textarea id="work_finish_tpl" class="hideim">
+		<li>
+			<a href="javascript:alert('已完成的流程不能再次办理');"><!--  data-evt="<%= opflag ? 'sponsorWork': 'operateWork' %>" data-param='{"runId": "<%=runid%>","key":"<%=key%>"}' -->
+				<div class="briefh">
+					<h4 class="title"><%=runName%></h4>
+					<time class="time"><%=core.toDatetime(begintime)%></time>
+					<div class="content">
+						<% if(focus) { %>
+						<i class="aoicon ao-goldstar flr"></i>
+						<% } %>
+						[<%=runid%>]<%=stepname%>
+					</div>
+				</div>
+			</a>
+		</li>
+	</textarea>
+	<script>
+		$LAB.script("js/work/workfinish.js")
+		.wait(function () {
+			WorkFinish.init();
+		})
+	</script>
+</div>
+
+
+
+

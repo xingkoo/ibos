@@ -1,0 +1,12 @@
+
+.o-mail-mark{ 
+	width: 10px; 
+	height: 16px;
+	display: inline-block; 
+	vertical-align: middle; 
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	background-image: url(../images/mail/mail_mark.png);
+}
+
+.mail-list .o-mail-mark{ position: absolute; bottom: 10px; right: 30px; }

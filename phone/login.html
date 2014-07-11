@@ -1,0 +1,64 @@
+<div class="login">
+	<!--header开始-->
+	<div class="logo">
+		<h1 class="ut ub-f1"> <img src="images/logo.png" alt="IBOS协同办公平台"></h1>
+	</div>
+	<!--header结束-->
+	<!--content开始-->
+		<form id="loginForm" onsubmit="app.login();return false;">
+			<div class="loginbar">
+				<!--列表开始-->
+				<ul class="list inset">
+					<li class="control-group">
+						<label for="">用户名</label>
+						<div class="controls">
+							<input name="username" type="text" id="username" value="" autocomplete>
+						</div>
+					</li>
+					<li class="control-group">
+						<label for="">密码</label>
+						<div class="controls">
+							<input name="password" type="password" id="password" value="">
+						</div>
+					</li>
+				</ul>
+				<!--列表结束-->
+				<a class="button white large primary" href="#netSetting" id="selectNet">设置地址</a>
+				<button id="loginbtn" name="loginbtn" value="登录" type="submit" class="button blue large primary" >登录</button>
+				<input name="gpsInput" id="gpsInput" value="" type="hidden" />
+				<input name="addressInput" id="addressInput" value="" type="hidden" />
+				<span id="myAddress"> </span>
+			</div>
+		</form>
+	<!--content结束-->
+	<!--footer开始-->
+	<div class="sign">
+		<h1> <img src="images/copyright.png" alt="IBOS博思协创"> </h1>
+	</div>
+	<!--footer结束-->
+</div>
+<script type="text/javascript">	
+// appsdk开始调用
+appSdk.ready(function(){
+	appSdk.gps.getLocation(
+		function(position){
+			var latlog = position.coords.latitude + "," + position.coords.longitude ;
+			document.getElementById('gpsInput').value = latlog;
+			appSdk.gps.getAddress( position.coords.latitude,position.coords.longitude,function(o){
+				document.getElementById('addressInput').value = o.result.formatted_address ;
+				app.address = o.result.formatted_address ;
+				$('#myAddress').html(o.result.formatted_address);
+			})
+		}, 
+		function(err){
+			console.log(err.message);
+		}
+	);
+})
+$(document).ready(function(){
+	var username = core.getStorage("lastUser");
+	if(username){
+		document.getElementById("username").value = username;
+	}
+})
+</script>

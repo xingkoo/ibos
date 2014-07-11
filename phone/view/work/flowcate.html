@@ -1,0 +1,11 @@
+<div id="work_flow_cate" class="panel" data-footer="none" data-nav="none" data-title="发起工作">
+	<div>
+		<h4 class="list-divider" id="work_flow_list_title"></h4>
+		<ul class="list list-active" id="work_flow_list"></ul>
+	</div>
+	<textarea id="work_flow_item_tpl" class="hideim">
+		<li>
+			<a href="javascript:;" onclick="WorkStart.startFlow(<%=flowid%>, 'new')"><%=name%></a>
+		</li>
+	</textarea>
+</div>

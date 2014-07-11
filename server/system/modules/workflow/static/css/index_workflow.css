@@ -1,0 +1,27 @@
+.o-wk-attention,
+.o-yw-attention{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 5px;
+	background: url(../image/workflow.png) no-repeat center center; 
+}
+
+
+.o-wk-attention{ background-position: -40px 0; }
+.active .o-wk-attention{ background-position: -60px 0; }
+.o-yw-attention{ background-position: -35px -40px; }
+
+.in-wf-empty{
+	width: 488px;
+	height: 300px;
+	background: url(../image/empty_works.png) no-repeat center center; 
+}
+
+.wk-text-nowrap{
+	max-width: 290px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}

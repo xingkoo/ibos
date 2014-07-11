@@ -1,0 +1,80 @@
+<div data-title="查看日志" id="diary_view" class="panel" data-footer="footer_diary_view" data-nav="none">		
+	<link rel="stylesheet" href="css/diary.css">
+	<div id="diaryContent"></div>
+	<textarea id="diaryContentTpl" class="hideim">
+		<input type="hidden" id="diary_current_id" value="<%=diary.diaryid%>">
+		<input type="hidden" id="diary_prev_id" value="<%=prevAndNextPK.prevPK%>">
+		<input type="hidden" id="diary_next_id" value="<%=prevAndNextPK.nextPK%>">
+		<div class="box media">
+			<div class="media-costar avatar">
+				<img src="<%=app.defaultUrl%>/<%=app.getUser(diary.uid)!=null?app.getUser(diary.uid).avatar_small:""%>" alt="">
+			</div>
+			<div class="media-body brief">
+				<h4><strong><%=diary.realname%></strong> <%=diary.diarytime.year%>-<%=diary.diarytime.month%>-<%=diary.diarytime.day%>工作日志</h4>
+				<time class="time"><%=diary.addtime%></time>
+			</div>
+		</div>
+		<div class="diary-view">
+			<h4 class="titlebar"><%=diary.diarytime.year%>-<%=diary.diarytime.month%>-<%=diary.diarytime.day%> <%=diary.diarytime.weekday%></h4>
+			<ul class="list list-condensed">
+				<%if(data.originalPlanList.length>0){%>
+				<li class="divider">原计划</li>
+					<%for(var i in data.originalPlanList){%>
+					<li><%=parseInt(i,10)+1%>. <%=data.originalPlanList[i].content%> <span class="negflr progress-badge"><%=data.originalPlanList[i].schedule*10%>%</span></li>
+					<%}%>
+				<%}%>
+				<%if(data.outsidePlanList.length>0){%>
+				<li class="divider">计划外</li>
+					<%for(var i in data.outsidePlanList){%>
+					<li><%=parseInt(i,10)+1%>. <%=data.outsidePlanList[i].content%> <span class="negflr progress-badge"><%=data.outsidePlanList[i].schedule*10%>%</span></li>
+					<%}%>
+				<%}%>
+				<li class="divider">工作内容</li>
+				<li class="content">
+					<p><%=core.util.replaceEditorSrc(diary.content)%></p>
+				</li>
+			</ul>
+			
+			<ul class="list list-condensed">
+				<li class="divider">
+					<span>工作计划</span>
+					<div class="flr">
+						<input type="date" class="datepicker" disabled="true" value="<%=diary.nextDiarytime.year%>-<%=diary.nextDiarytime.month%>-<%=diary.nextDiarytime.day%>">
+					</div>
+				</li>
+				<%for(var i in data.tomorrowPlanList){%>
+				<li><%=parseInt(i,10)+1%>. <%=data.tomorrowPlanList[i].content%></li>
+				<%}%>
+			</ul>
+			<%if(diary.commentcount>0){%>
+			<!--
+			<ul class="list">
+				<li class="divider">点评</li>
+				<li class="media">
+					<div class="media-costar avatar"><img src="" alt=""></div>
+					<div class="media-body brief">
+						<a href="javascript:;" class="aoicon ao-comment-gray flr"></a>
+						<h4>赵六</h4>
+						<p class="content">关于表格样式的问题需要再讨论</p>
+						<time class="time">04-02 19:02</time>
+					</div>
+				</li>
+			</ul> 
+			-->
+			<%}%>
+		</div>
+	</textarea>
+	<!-- 查看日志 -->
+	<footer id="footer_diary_view" class="toolbar">
+		<a href="javascript:;" data-evt="prevDiary"><i class="ao-up"></i></a>
+		<a href="javascript:;" data-evt="nextDiary"><i class="ao-down"></i></a>
+		<!-- <a href="javascript:;" data-evt="editDiary"><i class="ao-edit"></i></a> -->
+		<!-- <a href="javascript:;" data-evt="removeDiary"><i class="ao-trash"></i></a> -->
+	</footer>
+</div>
+
+
+<script>
+	
+
+</script>

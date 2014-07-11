@@ -1,0 +1,55 @@
+<div id="mail_view" class="panel" data-title="查看邮件" data-nav="none" data-footer="footer_mail_view">
+	<div id="mailContent" class="view"></div>
+	<textarea id="mailContentTpl" class="hideim">
+		<h2 class="view-title"><%=subject%></h2>
+		<details class="view-detail">
+			<summary><%=app.getUserName(fromid)%></summary>
+			<p>
+				发件人:<%=app.getUserName(fromid)%><br />
+				收件人:<%=app.getUserName(toids)%><br />
+				抄送人:<%=app.getUserName(copytoids)%><br />
+				时  间:<time><%=core.toDatetime(sendtime)%></time>
+			</p>
+		</details>
+		<div class="view-content"><%=core.util.replaceEditorSrc(content)%></div>
+		<input type="hidden" id="mailSubjectHidden" value="<%=subject%>">
+		<input type="hidden" id="mailFromIdHidden" value="<%=fromid%>">
+		<input type="hidden" id="mailCopyToIdsHidden" value="<%=copytoids%>">
+
+		<%if(attachmentid != ""){%>
+		<!-- 附件排版 -->
+				<div class="pds">
+			<%for (var i in attach){%>
+					<ul class="att-list">
+						<li class="att" onclick="appSdk.browser.show('<%=app.defaultUrl%>/<%=attach[i].downurl%>');">
+							<div class="att-icon">
+								<img src="images/filetype/<%=attach[i].filetype%>.png" alt="" width="44" height="44">
+							</div>
+							<div class="att-content">
+								<h4><%=attach[i].filename%></h4>
+								<p class="att-desc"><%=attach[i].filesize%></p>
+							</div>
+							<div class="att-op">
+								<a href="<%=app.defaultUrl%>/<%=attach[i].downurl%>" class="aoicon ao-download-gray"></a>
+							</div>
+						</li>
+					</ul>
+			<%}%>
+				</div>
+		<%}%>
+	</textarea>
+	<footer id="footer_mail_view" class="toolbar">
+		<a href="javascript:;" onclick="Email.markMail()">
+			<i class="ao-mark"></i>
+		</a>
+		<a href="#" onclick="Email.replyMail()">
+			<i class="ao-reply"></i>
+		</a>
+		<a href="javascript:;" onclick="Email.replyAll()">
+			<i class="ao-reply-all"></i>
+		</a>
+		<a href="javascript:;" onclick="Email.deleteMail()">
+			<i class="ao-trash"></i>
+		</a>
+	</footer>
+</div>

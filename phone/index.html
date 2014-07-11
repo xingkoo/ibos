@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+<head>
+	<title>IBOS</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=1">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- appframework -->
+	<link rel="stylesheet" type="text/css" href="css/src/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/src/badges.css" />
+	<link rel="stylesheet" type="text/css" href="css/src/buttons.css" />
+	<link rel="stylesheet" type="text/css" href="css/src/lists.css" />
+	<link rel="stylesheet" type="text/css" href="css/src/forms.css" />
+	<link rel="stylesheet" type="text/css" href="css/src/grid.css" />
+	<link rel="stylesheet" type="text/css" href="css/src/ibos.css" />
+	<link rel="stylesheet" type="text/css" href="plugins/css/af.actionsheet.css" />
+	<link rel="stylesheet" type="text/css" href="plugins/css/af.popup.css" />
+	<link rel="stylesheet" type="text/css" href="plugins/css/af.selectBox.css" />
+		
+	<link rel="stylesheet" type="text/css" href="css/animate.css" />
+	<link rel="stylesheet" type="text/css" href="css/ui-home.css" />
+	<!-- -->
+	<link rel="stylesheet" type="text/css" href="css/short.css" />
+	<link rel="stylesheet" type="text/css" href="css/userselect.css" />
+	<link rel="stylesheet" type="text/css" href="css/letter.css" />
+	
+	<script type="text/javascript" charset="utf-8" src="plugins/appframework.js"></script>
+	
+	<!-- include af.desktopBrowsers.js on desktop browsers only -->
+	<script type="text/javascript" >		
+		if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+			var script = document.createElement("script");
+			script.src = "plugins/af.desktopBrowsers.js";
+			var tag = $("head").append(script);
+
+			console.log("loaded!!!!!!!!!!!!!! ");
+		}
+	</script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./ui/src/appframework.ui.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.template.js"></script>
+
+	
+	<script type="text/javascript" charset="utf-8" src="./js/LAB.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./js/underscore.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./js/core.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./js/function.js"></script>
+
+
+	<script type="text/javascript" charset="utf-8" src="./phonegap.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./js/appsdk.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./js/push.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./js/when.js"></script>
+	
+	<script type="text/javascript">
+		/* This code is used to run as soon as appMobi activates */
+		var onDeviceReady = function () {
+			console.log("onDeviceReady");
+			app.init();  // 初始化我的数据
+			$.ui.blockPageScroll(); //block the page from scrolling at the header/footer 
+			try{
+				//hide splash screen
+				navigator.splashscreen.hide();
+				if($.os.ios){
+					StatusBar.styleLightContent();
+					StatusBar.backgroundColorByName("black");					
+				}
+			}catch(e){
+				console.log(e);
+			};
+		};
+		var webRoot = "./";
+
+		appSdk.ready(onDeviceReady);
+		appSdk.resume(onDeviceReady);
+
+		$.ui.autoLaunch = false;
+		$.ui.openLinksNewTab = false;
+		$.ui.resetScrollers = false;
+
+		$(document).ready(function(){			
+			// $.ui.setSideMenuWidth($("#afui").width()-50);
+			$.ui.launch();
+			$("#splashscreen").hide();
+			$.ui.defaultMenu = $("#defaultMenu");
+			if(!$.os.android && !$.os.ios && !$.os.wp){  //如果不是手机设备，直接初始化我的数据。
+				app.init();  // 初始化我的数据
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="afui" class="ibos">
+	<!-- this is the splashscreen you see. -->
+	<div id="splashscreen" class='ui-loader heavy'>
+		 IBOS协同办公平台 <br>
+		<br>
+		<span class='ui-icon ui-icon-loading spin'></span>
+		<h1>正在载入...</h1>
+	</div>
+		<!-- －－－－－－－－－－－－－－－－－－ -->
+	<div id="header"></div>
+	<div id="content">
+			<!-- －－－－－－－－－－－－－－－－－－ -->
+			<div title="IBOS移动客户端" id="main" selected="true" class="panel mainbg" data-tab="navbar_main" data-load="mainload" data-nav="none" >
+				<div class="home-item">
+					<a href="view/mail/mail.html" data-transition="pop">
+						<i class="item-ico ico-mail"></i>
+						邮件
+					</a><a href="view/news/news.html" data-transition="pop">
+						<i class="item-ico ico-article"></i>
+						信息
+					</a><a href="view/docs/docs.html" data-transition="pop">
+						<i class="item-ico ico-doc"></i>
+						公文
+					</a><a href="view/diary/diary.html" data-transition="pop">
+						<i class="item-ico ico-diary"></i>
+						工作日志
+					</a><a href="javascript:;" onclick="app.openPhonebook()" data-transition="pop">
+						<i class="item-ico ico-phonebook"></i>
+						通讯录
+					</a><a href="view/work/todo.html" data-transition="pop">
+						<i class="item-ico ico-work"></i>
+						工作流
+					</a><!-- <a href="#more">
+						<i class="item-ico ico-more"></i>
+						添加更多
+					</a> -->
+				</div>
+			</div>
+			<!-- －－－－－－－－－－－－－－－－－ -->
+			<div title="添加更多" id="more" class="panel mainbg" data-nav="none" > 
+				<div class="home-item">
+					
+					<a onclick="$.ui.popup('暂未开放')">
+						<i class="item-ico ico-calendar"></i>
+						日程
+					</a><a onclick="$.ui.popup('暂未开放')">
+						<i class="item-ico ico-report"></i>
+						总结与计划
+					</a>
+				</div>
+			</div>
+			<!-- －－－－－－－－－－－－－－－－－－－－－－－ -->
+			<div title="私信" id="sms" class="panel" data-tab="navbar_msg" data-nav="none" data-header="header_msg" data-defer="view/sms/sms.html" data-load="loadSms"></div>
+			<div title="私信" id="sms_view" class="panel" data-tab="navbar_msg" data-nav="none" data-defer="view/sms/sms_view.html" data-unload="cleartime"></div>
+			<div title="消息中心" id="msg_view" class="panel" data-tab="navbar_msg" data-nav="none" data-defer="view/msg/msg_view.html"></div>
+			<!-- －－－－－－－－－－－－－－－－－－－－－－－ -->
+			<div title="企业微博" id="weibo" class="panel" data-tab="navbar_weibo" data-header="header_weibo" data-nav="none" data-defer="view/weibo/weibo.html"></div>
+			<!-- －－－－－－－－－－－－－－－－－－－－－－－－－－－－－ -->
+			<div title="个人设置" id="setting" class="panel" data-tab="navbar_setting" data-header="header_setting" data-nav="none" data-defer="view/setting/setting.html" data-load="loadSetting"></div>
+			<div title="个人资料" id="setting_profile" class="panel" data-tab="navbar_setting" data-footer="none" data-nav="none" data-defer="view/setting/setting_profile.html"></div>			
+			<div title="修改密码" id="setting_password" class="panel" data-tab="navbar_setting" data-footer="none" data-nav="none" data-defer="view/setting/setting_password.html"></div>
+			<!-- －－－－－－－－－－－－－－－－－－－－－－－－－－－－ -->
+			<div title="网络设置" id="netSetting" class="panel" data-load="showNetList" data-footer="none" data-nav="none" data-defer="view/net/net.html"></div>
+			<div title="网络设置" id="netEdit" class="panel" data-footer="none" data-nav="none" data-defer="view/net/net_edit.html"></div>
+			
+			<!-- -------------------panel----------------------- -->
+
+			<!-- --------- login --------- -->
+			<div title="登录" id="login" class="panel indexbg" data-defer="login.html" data-footer="none" data-nav="none" data-load="loadLogin" data-unload="unloadLogin" style="overflow:hidden;"></div>
+	<!-- －－－－－－－－－－－－－－－－－－－－－ -->
+	</div>		
+	<!-- －－－－－－－－－－－－－－－－－－－－－－－－－ -->
+	<!-- navbar -->
+	<div id="navbar">
+		<a href="#main" id='navbar_main' data-transition="none" class='icon home'>首页</a>
+		<a href="#sms" id='navbar_msg' data-transition="none" class="icon msg">消息</a>
+		<a href="#weibo" id='navbar_weibo' data-transition="none" class="icon weibo">微博</a>
+		<a href="#setting" id='navbar_setting' data-transition="none" class="icon setting">设置</a> 
+	</div>
+
+	<div id="cm_tip"><div class="tip"></div></div>
+	<!-- -------------------nav----------------------- -->
+	<nav id="defaultMenu">
+		<ul class="list list-active">
+			<li class="divider icon home">侧边栏</li>
+		</ul>
+		<a class="button orange" onClick="app.logout()">退出登录</a>
+	</nav>
+</div>
+<iframe name='hidden_frame' style="display:none;" id="hidden_frame"></iframe>
+</body>
+</html>

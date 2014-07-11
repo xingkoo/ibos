@@ -1,0 +1,3 @@
+<?php
+
+CacheUtil::rm("notifyNode");

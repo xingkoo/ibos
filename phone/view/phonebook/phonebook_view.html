@@ -1,0 +1,44 @@
+<div id="phonebook_view" class="panel" data-title="通讯录" data-footer="none" data-nav="none">
+	<div class="pdhs" id="phonebookContent"></div>
+	<textarea id="phonebookTpl" style="display:none;">
+		<div class="phonebookPanel">   
+			<img class="headBg" src="<%=app.defaultUrl%>/data/home/default.png">   
+			<div class="phonebookHead">    
+	<!-- 			<div style="background-color: #383C41; height: 40px; /* top: 30px; */ opacity: .5; position: absolute; top: 0; width: 100%;">
+				</div> -->
+				<div class="avatar">     
+					<img id="myAvatar" src="<%=app.defaultUrl%>/<%=avatar_middle%>" />    
+				</div>    
+				<div class="text">
+					<strong><%=realname%></strong>
+				</div>
+				<div class="text" style="background-color:#fff;">
+					<span><%=bio%></span>
+				</div>
+			</div>
+		</div>
+		<ul class="list inset">
+			<li>
+				<a><b>生日</b> <%=core.toDatetime(birthday,"d")%></a>
+			</li>
+			<li>
+				<a href="tel:<%=mobile%>"><b>手机</b> <%=mobile%></a>
+			</li>
+			<li>
+				<a href="mailto:<%=email%>" target="_blank"><b>邮箱</b> <%=email%></a>
+			</li>
+		</ul>
+	</textarea>
+	<script>
+		(function(){
+			var tpl = $.query("#phonebookTpl").val(),
+				$target = $.query("#phonebookContent"),
+				userData = app.getUser(app.param.get("phonebookUid"));
+			$target.html($.template(tpl, userData));
+			
+			$("#phonebook_view").one("unloadpanel", function(){
+				app.param.remove("phonebookUid");
+			})
+		})();
+	</script>
+</div>

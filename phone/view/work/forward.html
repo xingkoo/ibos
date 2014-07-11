@@ -1,0 +1,110 @@
+<div id="work_forward" class="panel" data-title="转交下一步" data-nav="none" data-footer="footer_work_forward">
+	<header id="header_work_forward">
+		<a href="javascript:;" class='button ao-cancel' data-evt="cancelWorkForward"></a>
+		<h1>转交下一步</h1>
+	</header>
+	<form action="javascript:;" id="form_work_forward">
+	<div class="pdhs pdvs" id="work_forward_step">
+		
+	</div>
+	</form>
+	<footer id="footer_work_forward">
+		<div class="opbar">
+			<div class="op-main">
+				<button class="button blue infoot" data-evt="workForward">确定</button>
+			</div>
+		</div>
+	</footer>
+	<!-- Template -->
+	<textarea id="work_forward_step_tpl" class="hideim">
+		<div class="inset-list-divider">选择下一步骤</div>
+		<ul class="list inset">
+			<% for(var i = 0; i < steps.length; i++) { %>
+			<% var step = steps[i]; %>
+			<%if(process.syncdeal==1){%>
+				<li class="checkbox-group">
+					<input type="checkbox" name="prcs_choose[]" 
+			<%}else{%>
+				<li class="radio-group">
+					<input type="radio" name="prcs_choose[]" 
+			<%}%>
+				value="<%=i%>" id="nextstep_<%=prcsto[i]%>" <% if (step.checked) { %>checked<% } %>>
+					<label for="nextstep_<%=prcsto[i]%>">
+						<span class="label black"><%=prcsto[i]%></span>
+						<span><%=step.prcsname%></span>
+					</label>		
+					<ul class="list inset" id="user_select_<%=prcsto[i]%>">
+						<li>
+							<div class="control-group">
+								<label class="xcd">主办</label>
+								<div class="controls user-selector-bar">
+									<a href="javascript:;" class="aoicon ao-more-gray posa-o" data-evt="addWorkSponsor" data-param='{
+										"id": "work_sponsor_<%=prcsto[i]%>"
+										<%if(1==2){%>,"include": [1, 13, 93]<%}%>
+									}'></a>
+									<ul class="user-selector-list" id="work_sponsor_<%=prcsto[i]%>" data-input="#prcs_user_op<%=i%>"></ul>
+									<input type="hidden" id="prcs_user_op<%=i%>" name="prcs_user_op<%=i%>" />
+								</div>
+							</div>
+								<input type="hidden" name="topflag<%=i%>" value="0" />
+						</li>
+						<li>
+							<div class="control-group">
+								<label class="xcd">经办</label>
+								<div class="controls user-selector-bar">
+									<a href="javascript:;" class="aoicon ao-more-gray posa-o" data-evt="addWorkOperator" data-param='{
+										"id": "work_operator_<%=prcsto[i]%>"
+										<%if(1==2){%>,"include": [1, 13, 93]<%}%>
+									}'></a>
+									<ul class="user-selector-list" id="work_operator_<%=prcsto[i]%>" data-input="#prcs_user<%=i%>"></ul>
+									<input type="hidden" id="prcs_user<%=i%>" name="prcs_user<%=i%>" />
+								</div>
+							</div>
+						</li>
+					</ul>
+				</li>
+			<% } %>
+		</ul>
+		<!-- <div class="inset-list-divider">办理人</div> -->
+
+
+		<div class="inset-list-divider">事务提醒</div>
+		<ul class="list inset">
+			<li>
+				<input id="next_actoruser" type="checkbox" name="remind[1]" value="1" checked class="toggle">		
+				<label for="next_actoruser" data-on="ON" data-off="OFF">
+					<span></span>
+				</label>
+				<span>下一步办理人</span>
+			</li>
+			<li>
+				<input id="originator" type="checkbox" name="remind[2]" value="2" class="toggle">		
+				<label for="originator" data-on="ON" data-off="OFF">
+					<span></span>
+				</label>
+				<span>发起人</span>
+			</li>
+			<li>
+				<input id="all_actoruser" type="checkbox" name="remind[3]" value="3" class="toggle">		
+				<label for="all_actoruser" data-on="ON" data-off="OFF">
+					<span></span>
+				</label>
+				<span>全部办理人</span>
+			</li>
+			<li>
+				<div class="control-group">
+					<label class="xcd">提醒内容</label>
+					<div class="controls">
+						<input type="text" placeholder="请输入提醒内容" name="message" value="请您及时办理工作【<%=run['name']%>】，谢谢">
+					</div>
+				</div>
+			</li>
+		</ul>
+		<input type="hidden" name="runid" value="<%=runid%>">
+		<input type="hidden" name="flowid" value="<%=flowid%>">
+		<input type="hidden" name="processid" value="<%=processid%>">
+		<input type="hidden" name="flowprocess" value="<%=flowprocess%>">
+		<input type="hidden" name="processto" value="<%=process.processto%>">
+	</textarea>
+</div>
+

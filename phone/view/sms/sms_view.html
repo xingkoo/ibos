@@ -1,0 +1,94 @@
+<div class="chat" id="smsView">
+</div>
+<form id="formPm" action="<%=app.appUrl%>/pm/postimg" method="post" target="hidden_frame" enctype="multipart/form-data">
+	<input id="pm_img" name="pmimage" style="display:none;" type="file"/>
+	<input id="pm_touid" name="pmtouid" style="display:none;" type="text" value="0"/>
+	<input id="pm_id" name="pmid" style="display:none;" type="text" value="0"/>
+</form>
+<textarea id="smsViewTpl" style="display:none;">
+	<%if(mtime-Sms.prevTime>60 && core.toDatetime(mtime) != core.toDatetime(Sms.prevTime)){%><div class="timesep"> <%=core.toDatetime(mtime)%></div><%}%>
+	<div class="chat-item <%if(fromuid==app.uid){%>chat-item-right<%}%>">
+		<div class="avatar">
+			<img src="<%=app.defaultUrl%>/<%=avatar_small%>" alt="">
+		</div>
+		<div class="chat-bubble <%if(fromuid==app.uid){%>gray<%}%>">
+			<%=core.util.replaceEditorSrc(content)%>
+		</div> 
+	</div>
+</textarea>
+
+<footer>
+	<!-- @Todo: 样式迁移 -->
+<style>
+	#afui.ibos .sms-input,
+	#afui.ibos .sms-plus,
+	#afui.ibos .sms-submit{
+		vertical-align: top;
+	}
+	#afui.ibos .sms-plus{
+		position: absolute;
+		padding: 4px;
+	}
+	#afui.ibos .sms-input{
+		width: 100%;
+		padding-left: 35px;
+		padding-right: 65px;
+	}
+	#afui.ibos .sms-submit{
+		position: absolute;
+		top: 8px;
+		right: 10px;
+		width: 60px;
+	}
+
+	#afui.ibos .opt-panel{
+		-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3);
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3);
+		display: none;
+		border-top: 1px solid #383C41;
+	}
+	#afui.ibos #navbar.open .opt-panel{	display: block; }
+
+	#afui.ibos .opt-list li{
+		-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 1px #2E3135;
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 1px #2E3135;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+		background-image: -webkit-linear-gradient(top, #4C5055 70%, #3C4044);
+		background-image: linear-gradient(top, #4B4F54, #383C41);
+		display: inline-block;
+		margin: 10px 0 10px 15px;
+		padding: 5px 17px;
+		border: 1px solid #383C41;
+		text-align: center;
+	}
+	#afui.ibos .opt-list li p{
+		margin-bottom: 0;
+		color: #BBBDC9;
+		font-size: 12px;
+	}
+	#afui.ibos .opt-list li img{
+		width: 22px;
+		height: 22px;
+	}
+</style>
+	<div class="input-toolbar">
+		<div class="sms-plus"><i class="aoicon ao-more"></i></div>
+		<div class="sms-input">
+			<input type="text" maxlength="140" placeholder="输入内容" name="smsInput" id="smsInput" class="vat"/>
+		</div>
+		<button type="submit" onclick="Sms.send()" class="button blue sms-submit" value="发送">发送</button>
+	</div>
+	<div class="opt-panel">
+		<ul class="opt-list">
+			<li onClick=" appSdk.camera.getImage(function(imageData){ $('#pm_img').val(imageData);$('#formPm').submit(); }); ">
+				<i class="aoicon ao-picture"></i>
+				<p>图片</p>
+			</li>
+			<li onClick=" appSdk.camera.getPhoto(function(imageData){ $('#pm_img').val(imageData);$('#formPm').submit(); }); ">
+				<i class="aoicon ao-camera"></i>
+				<p>拍照</p>
+			</li>
+		</ul>
+	</div>
+</footer>

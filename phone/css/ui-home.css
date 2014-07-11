@@ -1,0 +1,221 @@
+.main-bg { 
+	background:url(images/bg.jpg);
+}
+.home-item a {
+	/*float:left;*/
+	display:inline-block;
+	width:25%;
+	margin:1em 0 0;
+	text-align:center;
+	list-style:none;
+	text-decoration:none;
+	color:#333;
+}
+.home-item a:active i{
+	box-shadow:0 .1em .3em rgba(0, 0, 0, 0.5) , inset 0 0 100px rgba(0,0,0,.2);
+}
+.item-ico {
+	display:block;
+	height:60px;
+	width:60px;
+	margin:.5em auto;
+	border-radius:25%;
+	box-shadow:0 .1em .3em rgba(0, 0, 0, 0.5);
+	-webkit-background-size:auto 100%;
+	background-size:auto 100%;
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+}
+.ico-article { background-image:url('../images/ico/article.png'); }
+.ico-mail { background-image:url('../images/ico/email.png'); }
+.ico-calendar { background-image:url('../images/ico/calendar.png'); }
+.ico-work { background-image:url('../images/ico/workflow.png'); }
+.ico-diary { background-image:url('../images/ico/diary.png'); }
+.ico-report { background-image:url('../images/ico/report.png'); }
+.ico-doc { background-image:url('../images/ico/officialdoc.png'); }
+.ico-phonebook { background-image:url('../images/ico/phonebook.png'); }
+.ico-more { background-image:url('../images/ico/more.png'); box-shadow:none; }
+
+/* -------------------- */
+.list-ico li i,
+.aoicon,
+.moicon{
+	display: inline-block;
+	background-repeat: no-repeat;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	vertical-align: middle;
+	/*vertical-align: -6px;*/
+}
+.list-ico li i,
+.aoicon{ width: 22px; height: 22px; }
+.list-ico li i{ margin-right:4px; }
+#afui #header .button.aol{ -webkit-box-shadow: inset -1px 0 0 rgba(255, 255, 255, .2); -moz-box-shadow: inset -1px 0 0 rgba(255, 255, 255, .2); box-shadow: inset -1px 0 0 rgba(255, 255, 255, .2); border-right: 1px solid #1977C5; }
+#afui #header .button.aor{ -webkit-box-shadow: inset 1px 0 0 rgba(255, 255, 255, .2); -moz-box-shadow: inset 1px 0 0 rgba(255, 255, 255, .2); box-shadow: inset 1px 0 0 rgba(255, 255, 255, .2); border-left: 1px solid #1977C5; }
+
+/* Icon common */
+.ao-mark{ background-image: url(../images/act/mark.png);}
+.ao-trash{ background-image: url(../images/act/trash.png); }
+
+.ao-download{ background-image: url(../images/act/download.png); }
+.ao-download-gray{ background-image: url(../images/act/downloadgray.png); }
+.ao-more{ background-image: url(../images/act/more.png); }
+.ao-more-gray{ background-image: url(../images/act/moregray.png); }
+.ao-picture{ background-image: url(../images/act/picture.png); }
+.ao-camera{ background-image: url(../images/act/camera.png); }
+
+
+/* Icon mail*/
+.ao-inbox{ background-image: url('../images/act/inbox.png'); }
+.ao-reply{ background-image: url(../images/act/reply.png); }
+.ao-reply-all{ background-image: url(../images/act/replyall.png); }
+.ao-draft{background-image: url('../images/act/draft.png'); }
+.ao-folder{background-image: url('../images/act/folder.png'); }
+
+/* Icon news */
+.ao-news{background-image: url('../images/act/news.png'); }
+.ao-read{background-image: url('../images/act/read.png'); }
+.ao-unread{background-image: url('../images/act/unread.png'); }
+
+/**/
+.ao-file{ background-image: url('../images/act/file.png'); }
+
+
+.ao-cancel { background-image: url(../images/act/cancel.png); left: 0;}
+.ao-menu { background-image: url(../images/act/menu.png); left: 0;}
+.ao-home { background-image: url(../images/act/home.png); right: 0; }
+.ao-ok { background-image: url(../images/act/ok.png); right: 0;}
+.ao-ok-gray { background-image: url(../images/act/okgray.png); right: 0;}
+.ao-send { background-image: url(../images/act/send.png); right: 0;}
+.ao-new { background-image: url(../images/act/new.png); right: 0;}
+.ao-edit { background-image: url(../images/act/edit.png); }
+.ao-edit-gray { background-image: url(../images/act/editgray.png); }
+.ao-up { background-image: url(../images/act/up.png); }
+.ao-down { background-image: url(../images/act/down.png); }
+.ao-comment{  background-image: url(../images/act/comment.png); }
+.ao-comment-gray{  background-image: url(../images/act/commentgray.png); }
+.ao-date-gray{ background-image: url(../images/act/dategray.png); }
+.ao-date-gray.pressed{ background-image: url(../images/act/dateblue.png); }
+.ao-trash-gray{ background-image: url(../images/act/trashgray.png); }
+.ao-trash-gray.pressed{ background-image: url(../images/act/trashred.png); }
+.ao-plus-gray{ background-image: url(../images/act/plusgray.png); }
+.ao-plus-green{ background-image: url(../images/act/plusgreen.png); }
+.ao-face{ background-image: url(../images/act/face.png); }
+.ao-stamp{ background-image: url(../images/act/stamp.png); }
+.ao-forward{ background-image: url(../images/act/forward.png); }
+.ao-forward-gray{ background-image: url(../images/act/forwardgray.png); }
+.ao-digg{ background-image: url(../images/act/digg.png); }
+.ao-digg-gray{ background-image: url(../images/act/digggray.png); }
+.ao-digg-orange{ background-image: url(../images/act/diggorange.png); }
+
+.ao-user{ background-image: url(../images/act/user.png); }
+.ao-appraise{ background-image: url(../images/act/appraise.png); }
+.ao-share{ background-image: url(../images/act/share.png); }
+.ao-underling{ background-image: url(../images/act/underling.png); }
+.ao-star{ background-image: url(../images/act/star.png); }
+
+.ao-doc{ background-image: url(../images/act/doc.png); } 
+.ao-receipted{ background-image: url(../images/act/receipted.png); } 
+.ao-unreceipted{ background-image: url(../images/act/unreceipted.png); }
+
+.ao-briefcase { background-image: url(../images/act/briefcase.png); }
+.ao-workdone { background-image: url(../images/act/workdone.png); }
+.ao-workfinish { background-image: url(../images/act/workfinish.png); }
+
+.ao-flock-lgray { background-image: url(../images/act/flocklgray.png); }
+
+.ao-location-gray { background-image: url(../images/act/locationgray.png); }
+
+.ao-pm-gray{ background-image: url(../images/act/pmgray.png); }
+.ao-mutual-gray{ background-image: url(../images/act/mutualgray.png); }
+
+.ao-at{ background-image: url(../images/act/at.png); }
+.ao-topic{ background-image: url(../images/act/topic.png); }
+
+.ao-goldstar{ background-image: url(../images/cm/goldstar.png); }
+.ao-upload-add{ background-image: url(../images/cm/uploadadd.png); }
+
+
+
+.moicon{ width: 14px; height: 14px; }
+.mo-search-gray{ background-image: url(../images/mini/search_gray.png); }
+
+/* --------- Login ----------- */
+.login{
+	position: relative;
+	height:100%;
+	min-height:440px;
+	padding: 0 10px;
+}
+.login .logo,
+.login .loginbar,
+.login .sign{
+	text-align:center;
+}
+.login img {
+	border: 0;
+	max-width: 80%;
+	height: auto;
+	margin:20px auto;
+}
+.sign {
+	position: absolute;
+	bottom:-20px;
+}
+
+/* 日期选择 */
+#afui input[type="date"].datepicker{
+	margin: 0;
+	padding: 0;
+	width: auto;
+	height: 22px;
+	border: 0 none;
+	background: transparent;
+	vertical-align: middle;
+}
+/*#afui input[type="date"].datepicker::-webkit-datetime-edit { }*/
+/*#afui input[type="date"].datepicker::-webkit-datetime-edit-fields-wrapper { }
+#afui input[type="date"].datepicker::-webkit-datetime-edit-text { }
+#afui input[type="date"].datepicker::-webkit-datetime-edit-year-field {  }
+#afui input[type="date"].datepicker::-webkit-datetime-edit-month-field {  }
+#afui input[type="date"].datepicker::-webkit-datetime-edit-day-field {}
+#afui input[type="date"].datepicker::-webkit-inner-spin-button { }
+#afui input[type="date"].datepicker::-webkit-calendar-picker-indicator {  }*/
+
+/* ------------ Download Panel */
+.download-body{ position: absolute; top: 50%; left: 20%; margin-top: -100px; width: 60%; height: 200px; text-align: center;}
+.download-footer{ position: absolute; bottom: 40px; width: 100%; text-align: center; font-size: 12px; color: #BBBDC9;}
+.dlc-button{ width: 120px; }
+
+/* ------------ Work */
+/* view source form button */
+#afui .wf-vsf-btn{ position: absolute; right: 10px; bottom: 10px; margin: 0; }
+
+/* 抵销 List Item 里的padding */
+.list-full{ margin: -11px -20px -11px -10px; }
+
+/* Button Ex */
+#afui.ibos .button.infoot{ 
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 0 rgba(255, 255, 255, .1);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 0 rgba(255, 255, 255, .1);
+	margin: 0;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	width: 100%;
+	border-color: #383C41;
+	background-color: #58585C;
+	color: #FFF;
+	text-shadow: none;
+}
+#afui.ibos .button.infoot:active,
+#afui.ibos .button.infoot.pressed{ -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, .1), 0 1px 0 rgba(255, 255, 255, .1); box-shadow: inset 0 1px 0 rgba(0, 0, 0, .1), 0 1px 0 rgba(255, 255, 255, .1); }
+
+#afui.ibos .button.infoot.blue{ background-color: #3497DB; }
+#afui.ibos .button.infoot.blue:active{ background-color: #3091D8; }
+
+#afui footer .cmflex .cmflex-item{ padding: 8px 0; }
+#afui footer .cmflex .button.infoot{ width: 90%; }
+
+.view-content img{
+	max-width: 100% !important;
+}

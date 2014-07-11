@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+    <head>
+        <script>
+            　　var lat1;
+            　　var log1;
+            　　function locationCallback(lat,log){
+            	　　uexLocation.closeLocation();
+            	　　lat1 = lat;
+            	　　log1 = log;
+            　　　　uexLocation.getAddress(lat,log);
+            　　　　document.getElementById('longitude').value = log;
+            　　　　document.getElementById('latitude').value = lat;
+            　　　}
+            　　function LocationSuccess(opCode,dataType,data){
+            　　　　if(dataType==0){
+            	　　　　document.getElementById('adre').value = data;
+            	　　　}
+            　　}
+            　　window.uexOnload = function(){
+            	　　uexLocation.onChange = locationCallback;
+            	　　uexLocation.cbGetAddress = LocationSuccess;
+            	　　uexWidgetOne.cbError = function(opCode,errorCode,errorInfo){
+			　　　　	alert("errorCode:" + errorCode + "\nerrorInfo:" + errorInfo);
+			　　　　}
+            　　}
+        </script>
+    </head> 
+    <body>
+        <div>
+            <label>
+                当前经度:
+            </label>
+            <input type="text" id="longitude" readOnly="true" />
+        </div>
+        <div>
+            <label>
+                当前纬度:
+            </label>
+            <input type="text" id="latitude" readOnly="true"/>
+        </div>
+        <div onClick="uexWindow.toast(1,5,'正在获取数据',0);uexLocation.openLocation();">
+            <input type="button" value="获取当前经纬度"/>
+        </div>
+        <div>
+            <img src='' id="picurl" />
+        </div>
+        <label for="text-5">
+            当前地址为:
+        </label>
+        <textarea id="adre" readOnly="true">
+        </textarea>
+    </body>
+</html>

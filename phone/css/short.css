@@ -1,0 +1,68 @@
+/* 通用短类集	*/
+
+/****** Short *******/
+
+.fll { float: left }
+.flr { float: right }
+.posa-r{ position: absolute; right: 0;}
+.posa-o{ position: absolute; right: 10px; top: 11px;}
+
+.dib{ display: inline-block; }
+
+.pdz{ padding:0 !important; }
+.pds{ padding: 10px; }
+.pdhs{ padding-left: 10px; padding-right: 10px; }
+.pdhh{ padding-left: 15px; padding-right: 15px; }
+.pdhn{ padding-left: 20px; padding-right: 20px; }
+.pdvs{ padding-top: 10px; padding-bottom: 10px; }
+
+.mgbz{ margin-bottom: 0!important; }
+.mgbm{ margin-bottom: 5px!important; }
+.mgbs{ margin-bottom: 10px!important; }
+.mgbn{ margin-bottom: 20px!important; }
+.mgbl{ margin-bottom: 30px!important; }
+
+.bdbgr{ border-bottom: 1px solid #DFDFDF; }
+
+.bgw{ background-color: #FFF!important; }
+.bggr{ background-color: #ECEDF0; } /* Gray */
+.bggrl{ background-color: #F8F9FA; } /* Lightgray */
+.bgol{ background-color: #FFFDFA; } /* Orange */
+
+.fsl{ font-size: 16px !important; }
+.fss{ font-size: 12px !important; }
+
+.xcw{ color: #FFF; }
+.xcd{ color: #383C41 !important; } /* 基本色 */
+.xcp{ color: #3497DB !important; } /* 蓝色 */
+.xcr{ color: #E26F50 !important; } /* 红色 */
+.xco{ color: #EE8C0C !important; } /* 橙色 */
+.xcm{ color: #58585C !important; } /* 主文字颜色 */
+.xca{ color: #82939E !important; } /* 辅助文字颜色 */
+.xcn{ color: #B2C0D1 !important; } /* 注释文字颜色 */
+
+.xwb{ font-weight: 700; }
+
+.vat{ vertical-align: top; }
+
+.xac{ text-align: center; }
+
+.hide{ display: none; }
+.hideim{ display: none !important; }
+
+.rds{ border-radius: 4px; }
+.rdut{ border-top-left-radius: 4px; border-top-right-radius: 4px; }
+.rdub{ border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; }
+
+.ao14,
+.ao16,
+.ao22{
+	display: inline-block;
+	background-repeat: no-repeat;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	vertical-align: middle;
+}
+.ao14{ width: 14px; height: 14px; }
+.ao16{ width: 16px; height: 16px; }
+.ao22{ width: 22px; height: 22px; }

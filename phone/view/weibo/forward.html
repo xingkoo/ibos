@@ -1,0 +1,49 @@
+<div id="weibo_forward" class="panel" data-header="header_weibo_forward" data-nav="none" data-footer="footer_weibo_forward">
+	<header id="header_weibo_forward">
+		<a href="javascript:;" id="backButton" class="button"></a>
+		<h1>转发微博</h1>
+		<a href="javascript:;" data-evt="feedForward" class="button ao-send"></a>
+	</header>
+	<div>
+		<div class="wb-fw-preview" id="wb_fw_preview"></div>
+		<textarea id="wb_forward_textarea" placeholder="说说分享心得..." class="trans-input" rows="10"></textarea>
+	</div>
+	<footer id="footer_weibo_forward" class="toolbar">
+		<a href="#"><i class="ao-face"></i></a>
+		<a href="#" data-evt="toAt" data-param='{"target": "#wb_forward_textarea"}'><i class="ao-at"></i></a>
+		<a href="#"><i class="ao-topic"></i></a>
+		<div class="wb-supernatant">
+			<div style="margin-left: 10px;">
+				<input type="checkbox" id="wb_forward_to_comment">
+				<label for="wb_forward_to_comment" class="checkbox xca">同时评论给<span id="wb_forward_cmuser"></span></label>
+			</div>			
+		</div>
+	</footer>
+	<textarea id="wb_forward_src_tpl" class="hideim">
+		<% if(isrepost == "1"){ %>
+			<div class="media">
+				<% if(api_source.type === "postimage") { %>
+				<div class="media-costar">
+					<img src="<%= app.defaultUrl + '/' + api_source.attach_url %>" alt="" width="100" height="80">
+				</div>
+				 <% } %>
+				<div class="media-body <%= api_source.type === 'postimage' ? '' : 'pdhs' %>">
+					<p>@<%= app.getUser(api_source.uid).realname %></p>
+					<p class="xcn"><%= api_source.content %></p>
+				</div>
+			</div>
+		<% } else { %>
+			<div class="media">
+				<% if(type === "postimage") { %>
+				<div class="media-costar">
+					<img src="<%= app.defaultUrl + '/' + attach_url %>" alt="" width="100" height="80">
+				</div>
+				 <% } %>
+				<div class="media-body <%= type === 'postimage' ? '' : 'pdhs' %>">
+					<p>@<%= app.getUser(uid).realname %></p>
+					<p class="xcn"><%= content %></p>
+				</div>
+			</div>
+		<% } %>
+	</textarea>
+</div>

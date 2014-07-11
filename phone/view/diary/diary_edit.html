@@ -1,0 +1,116 @@
+<div data-title="编辑日志" id="diary_edit" class="panel" data-header="header_diary_edit" data-footer="none" data-nav="none">
+	<link rel="stylesheet" href="css/diary.css">
+	<header id="header_diary_edit">
+		<a href="javascript:;" class="button ao-cancel" onclick="$.ui.goBack();"></a>
+		<h1>写日志</h1>
+		<a href="javascript:;" class="button ao-ok" onclick="diary.submit()"></a>
+	</header>
+	<div id="diaryEditContent"></div>
+	<textarea id="diaryEditTpl" class="hide">
+	<form id="diaryEditForm" action="<%=app.appUrl%>/diary/save" method="post" target="hidden_frame">
+		<input type="hidden" name="diaryid" value="<%=diary.diaryid%>">
+		<div class="diary-edit">
+			<h4 class="titlebar"><input name="todayDate" value="<%=diary.diarytime.year%>-<%=diary.diarytime.month%>-<%=diary.diarytime.day%>" type="hidden"/><%=diary.diarytime.year%>-<%=diary.diarytime.month%>-<%=diary.diarytime.day%> <%=diary.diarytime.weekday%></h4>
+			<ul class="list counter-list" id="diaryRecordList">
+				<%if(data.originalPlanList.length>0){%>
+				<li class="divider">原计划</li>
+					<%for(var i in data.originalPlanList){%>
+					<li class="counter-item"><%=data.originalPlanList[i].content%> 
+						<select name="originalPlan[<%=data.originalPlanList[i].recordid%>]" class="negflr progress-badge">
+							<% var orsche = data.originalPlanList[i].schedule;%>
+							<option value="0" <% if(orsche == "0") {%>selected<% } %>>0%</option>
+							<option value="1" <% if(orsche == "1") {%>selected<% } %>>10%</option>
+							<option value="2" <% if(orsche == "2") {%>selected<% } %>>20%</option>
+							<option value="3" <% if(orsche == "3") {%>selected<% } %>>30%</option>
+							<option value="4" <% if(orsche == "4") {%>selected<% } %>>40%</option>
+							<option value="4" <% if(orsche == "5") {%>selected<% } %>>50%</option>
+							<option value="4" <% if(orsche == "6") {%>selected<% } %>>60%</option>
+							<option value="4" <% if(orsche == "7") {%>selected<% } %>>70%</option>
+							<option value="4" <% if(orsche == "8") {%>selected<% } %>>80%</option>
+							<option value="4" <% if(orsche == "9") {%>selected<% } %>>90%</option>
+							<option value="4" <% if(orsche == "10") {%>selected<% } %>>100%</option>
+						</select>
+					</li>
+					<%}%>
+				<%}%>
+				<%if(data.outsidePlanList.length>0){%>
+				<li class="divider">计划外</li>
+					<%for(var i = 0; i < data.outsidePlanList.length; i++){%>
+					<li class="diary-edit-item counter-item">
+						<input name="planOutside[<%=i%>][content]" type="text" class="trans-input" value="<%=data.outsidePlanList[i].content%>">
+						<div class="negflr">
+							<select name="planOutside[<%=i%>][schedule]" class="progress-badge" value="<%=data.outsidePlanList[i].schedule%>">
+								<% var ousche = data.outsidePlanList[i].schedule;%>
+								<% for(var i = 0; i <= 10; i++) { %>
+								<option value="<%=i%>" <% if(ousche == i) {%>selected<% } %>><%=i * 10%>%</option>
+								<% } %>
+							</select>
+							<a href="javascript:;" class="aoicon ao-trash-gray" data-node-type="removeDiaryRecord" onclick="diary.removeDiaryRecord(this);"></a>
+						</div>
+					</li>
+					<%}%>
+				<%}%>
+				<li >
+					<a href="javascript:;" class="nochevron diary-addone active" data-node-type="addDiaryRecord" onclick="diary.addDiaryRecord();">
+						<i class="aoicon ao-plus-gray"></i>
+						添加一个工作
+					</a>
+				</li>
+			</ul>
+			<ul class="list">
+				<li class="divider">工作内容</li>
+				<li>
+					<textarea name="diaryContent" rows="5" class="trans-input" data-auto-height><%=diary.content%><\/textarea>
+				</li>
+			</ul>
+			<ul class="list counter-list" id="diaryPlanList">
+				<li class="divider">
+					<span>工作计划</span>
+					<div class="flr">
+						<i class="aoicon ao-date-gray"></i>
+						<input name="plantime" type="date" class="datepicker" value="<%=diary.nextDiarytime.year%>-<%=diary.nextDiarytime.month%>-<%=diary.nextDiarytime.day%>">
+					</div>
+				</li>
+				<%for(var i in data.tomorrowPlanList){%>
+				<li  class="diary-edit-item counter-item">
+					<input type="text" name="plan[][content]" class="trans-input" value="<%=data.tomorrowPlanList[i].content%>">
+					<div class="negflr">
+						<a href="javascript:;" class="aoicon ao-trash-gray" data-node-type="removeDiaryPlan" onclick="diary.removeDiaryPlan(this);"></a>
+					</div>
+				</li>
+				<%}%>
+				<li >
+					<a href="javascript:;" class="nochevron diary-addone active" data-node-type="addDiaryPlan" onclick="diary.addDiaryPlan();">
+						<i class="aoicon ao-plus-gray"></i>
+						添加一个计划
+					</a>
+				</li>
+			</ul>
+		</div>
+	</form>
+	</textarea>
+	<textarea id="diaryRecordTpl" class="hide">
+		<li  class="diary-edit-item counter-item">
+			<input type="text" name="planOutside[<%=timestamp%>][content]" class="trans-input" value="">
+			<div class="negflr">
+				<a href="javascript:;" class="aoicon ao-trash-gray" data-node-type="removeDiaryRecord" onclick="diary.removeDiaryRecord(this);"></a>
+			</div>
+			<div class="negflr">
+				<select name="planOutside[<%=timestamp%>][schedule]" class="progress-badge" >
+					<% for(var i = 0; i <= 10; i++) { %>
+						<option value="<%=i%>"><%= i * 10%>%</option>
+					<% } %>
+				</select>
+				<a href="javascript:;" class="aoicon ao-trash-gray" data-node-type="removeDiaryRecord" onclick="diary.removeDiaryRecord(this);"></a>
+			</div>
+		</li>
+	</textarea>
+	<textarea id="diaryPlanTpl" class="hide">
+		<li  class="diary-edit-item counter-item">
+			<input type="text" name="plan[][content]" class="trans-input" value="">
+			<div class="negflr">
+				<a href="javascript:;" class="aoicon ao-trash-gray" data-node-type="removeDiaryPlan" onclick="diary.removeDiaryPlan(this);"></a>
+			</div>
+		</li>
+	</textarea>
+</div>

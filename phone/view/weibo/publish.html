@@ -1,0 +1,24 @@
+<div id="weibo_publish" class="panel" data-header="header_weibo_publish" data-nav="none" data-footer="footer_weibo_publish">
+	<header id="header_weibo_publish">
+		<a href="javascript:;" id="backButton" class="button"></a>
+		<h1>发微博</h1>
+		<a href="javascript:;" data-evt="feedPublish" class='button ao-send'></a>
+	</header>
+	<div>
+		<textarea id="wb_publish_textarea" placeholder="分享新鲜事..." class="trans-input" rows="5"></textarea>
+	</div>
+	<footer id="footer_weibo_publish" class="toolbar">
+	<!-- 	<a onclick="Weibo.getpic()"><i class="ao-face"></i></a>
+		<a onClick="appSdk.camera.getImage( function(imageData){ Weibo.uploadPicture(imageData); });" ><i class="ao-camera"></i></a>
+		<a onClick="Weibo.takePicture().then(Weibo.uploadPicture).then(Weibo.deletePictureFromCache);"><i class="ao-picture"></i></a> -->
+		<a data-evt="toAt" data-param='{"target": "#wb_publish_textarea"}'><i class="ao-at"></i></a>
+		<!-- <a href="#"><i class="ao-topic"></i></a> -->
+		<div class="wb-supernatant">
+			<div class="wb-location">
+				<i class="ao16 ao-location-gray"></i>
+				<span id="showmyaddress"></span>
+				<script type="text/javascript">document.getElementById("showmyaddress").innerHTML=app.address;</script>
+			</div>
+		</div>
+	</footer>
+</div>

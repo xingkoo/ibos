@@ -1,0 +1,36 @@
+<div id="work_start" class="panel" data-footer="none" data-nav="none" data-title="发起工作">
+	<div>
+		<h4 class="list-divider">常用流程</h4>
+		<ul class="list list-active" id="work_start_item_list">
+		</ul>
+		<h4 class="list-divider">按分类</h4>
+		<ul class="list list-active" id="work_start_cate_list">
+		</ul>
+	</div>
+	<textarea id="work_start_item_tpl" class="hideim">
+		<li>
+			<a href="javascript:;" onclick="WorkStart.startFlow(<%=flowid%>, 'new')"><%=name%></a>
+		</li>
+	</textarea>
+	<textarea id="work_start_cate_tpl" class="hideim">
+		<li>
+			<a href="javascript:;" onclick="WorkStart.loadCateList(<%=catid%>, '<%=name%>')">
+				<div class="media">
+					<span class="media-costar">
+						<img src="images/big/folder.png" alt="" width="44" height="44">
+					</span>
+					<div class="media-body">
+						<h4 class="title"><%=name%></h4>
+						<div class="content">共<%=flowcount%>个工作</div>
+					</div>
+				</div>
+			</a>
+		</li>
+	</textarea>
+	<script>
+		$LAB.script("js/work/workstart.js")
+		.wait(function(){
+			WorkStart.init();
+		})
+	</script>
+</div>

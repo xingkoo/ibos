@@ -1,0 +1,87 @@
+/**
+ * 应用门户主页
+ * @version $Id$
+ */
+
+/* 也许会成为通用样式 */
+.nav-skid-inverse{ background-color: #0B73BB; }
+.nav-skid-inverse > li > a{ color: #66BBE9; }
+.nav-skid-inverse > .active > a{ color: #FFF; }
+.nav-skid-inverse > li:hover,
+.nav-skid-inverse > .active{ border-color: #FFF; }
+.nav-skid-inverse > li:hover > a,
+.nav-skid-inverse > .active > a{ padding-bottom: 7px; font-weight: 400; }
+
+.app-portal{}
+.app-portal-mainer{ float: left; width: 580px; }
+.app-portal-mainer .mbox{ margin-bottom: 20px; }
+.app-portal-sidebar{ float: right; width: 400px; }
+#app_sc_container{ width: 400px; }
+#app_sc_container.affix-bottom { position: absolute; }
+
+.o-app-setup{ display: inline-block; width: 30px; height: 30px; background: url(../image/app_icon.png) no-repeat -300px 0; }
+.o-app-setup:hover{ background-position: -330px 0; }
+.o-app-setup.active{ background-position: -240px 0; }
+.o-app-setup.active:hover{ background-position: -270px 0; }
+.o-app-pool{ display: inline-block; width: 20px; height: 20px; background: url(../image/app.png) no-repeat -20px -80px; vertical-align: middle; }
+.app-portal-sidebar .mbox-header .o-app-setup{ position: absolute; top: 10px; right: 20px; }
+
+.mbox .mbox-header { cursor: move; }
+.mbox .mbox-header .o-close-simple{ cursor: pointer; }
+
+/* 右栏快捷方式 */
+.app-shortcut{ padding: 20px 0 0; }
+.app-shortcut-list{ min-height: 330px; }
+.app-shortcut-list li{ position: relative; float: left; margin: 0 0 20px 19px; width: 76px; text-align: center; }
+/*.app-shortcut-list li > a{ display: inline-block; }*/
+
+.app-shortcut-icon{ margin-bottom: 5px; width: 64px; height: 64px; }
+.app-shortcut-name{ display: block; font-size: 12px; text-align: center; white-space: nowrap; overflow: hidden; -ms-text-overflow: ellipsis; text-overflow: ellipsis; }
+
+/* 应用选择框 */
+.app-dialog{ width: 760px; }
+.app-dialog-sidebar{ float: left; width: 160px; }
+.app-dialog-sidebar .nav{ height: 350px; }
+.app-dialog-title{
+	border-top-left-radius: 4px;
+	padding: 20px;
+	background-color: #3497db;
+}
+.app-dialog-title h3{ display: inline-block; margin: 0 0 0 5px; font-size: 20px; color: #FFF; vertical-align: middle; }
+.app-dialog-content{ -webkit-box-shadow: -1px 0 2px rgba(0, 0, 0, .1); -moz-box-shadow: -1px 0 2px rgba(0, 0, 0, .1); box-shadow: -1px 0 2px rgba(0, 0, 0, .1); margin-left: 160px; height: 420px; overflow: hidden; }
+
+
+.app-shortcut-add{ display: inline-block; background: url(../image/app.png) no-repeat; vertical-align: top; }
+.app-shortcut-list li:active .app-shortcut-add{ background-position: -64px 0; }
+.app-shortcut-cover{ position: absolute; top: -3px; left: 3px; width: 70px; height: 70px; background: url(../image/app_cover.png) no-repeat; }
+.app-dialog .app-shortcut-list li .app-shortcut-hover{
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 6px;
+	width: 64px;
+	height: 64px;
+	background: url(../image/app.png) no-repeat -128px 0;
+	cursor: pointer;
+}
+.app-dialog .app-shortcut-list li:hover .app-shortcut-hover{ display: block; }
+.app-dialog .app-shortcut-list li:active .app-shortcut-hover{ display: block; background-position: -192px 0; }
+
+
+.o-shortcut-remove{ display: none; position: absolute; top: -6px; right: -4px; width: 22px; height: 22px; background: url(../image/app.png) no-repeat 0 -80px; cursor: pointer; }
+.app-shortcut-list.editable .o-shortcut-remove{ display: block; }
+
+.app-widget-add{
+	-webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 1px 10px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 10px rgba(0, 0, 0, .1);
+	border-radius: 4px;
+	display: block;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: #FFF;
+	text-align: center;
+}
+.app-widget-empty .app-widget-add{ padding: 125px 15px; font-size: 20px; }
+.app-widget-empty .app-widget-add .o-plus{ background: url(../image/app_icon.png) no-repeat; display: block; margin: 0 auto 10px; width: 120px; height: 120px;  }
+.app-widget-empty .app-widget-add:hover .o-plus{ background-position: -120px 0; }

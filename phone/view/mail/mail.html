@@ -1,0 +1,87 @@
+<div id="mail" class="panel" data-footer="none" data-header="header_mail" data-nav="menu_mail" data-title="我的收件箱">
+	<link rel="stylesheet" href="css/mail.css">
+	<header id="header_mail">
+		<a onclick='af.ui.toggleSideMenu()' class='button ao-menu'></a>
+		<h1 id="title_mail">我的收件箱</h1>
+		<a onclick="app.goHome()" class='button ao-home'></a>
+	</header>
+	<!-- search box -->
+	<div class="search-bar">
+		<input type="search" placeholder="搜索" name="mailSearchInput" id="mailSearchInput" onblur="Email.search(this.value)" />				
+	</div>
+	<ul class="list list-active multi mail-list" id="mailList"></ul>
+	<!-- list template -->
+	<textarea id="mailListTpl" class="hideim">
+		<% { var isDraft = (typeof emailid === "undefined"); } %>
+		<% { var bodyid = bodyid, emailid = emailid; } %>
+		<li <%if(!isDraft && isread == "0"){%> class="new" <%}%> id="mail_item_<%=isDraft ? bodyid : emailid %>">
+
+			<!-- 操作菜单 -->
+			<div class="list-menu mail-af-list-menu">
+				<a href="javascript:;" slide-ignore data-evt="deleteMailFormList" 
+					<% if(isDraft){ %>
+					data-param='{"bodyid": <%=bodyid%>}'
+					<% } else { %>
+					data-param='{"emailid": <%=emailid%>}'
+					<% } %>
+				>
+					<i class="aoicon ao-trash"></i>
+					<p>删除</p>
+				</a>
+				<% if(ismark == '1') { %> 
+				<!--
+				<a href="javascript:;" slide-ignore>
+					<i class="aoicon ao-mark"></i>
+					<p>取消待办</p>
+				</a>
+				-->
+				<% } else { %>
+				<!--
+				<a href="javascript:;" slide-ignore>
+					<i class="aoicon ao-mark"></i>
+					<p>待办</p>
+				</a>
+				-->
+				<% } %>
+			</div>
+				
+			<a href="javascript:;" onclick="<% if(!isDraft){ %>Email.loadMail(<%=emailid%>,this)<% } else {%>Email.loadDraft(<%=bodyid%>)<% } %>">
+				<time class="flr time"><%=core.toDatetime(sendtime)%></time>
+				<p class="xcd"><%=fromuser%></p>
+				<p class="<%=important == '1' ? 'xcr': 'xcn'%>"><%=subject%></p>
+				<% if(ismark == '1'){ %> <i class="o-mail-mark"></i> <% } %>
+			</a>
+
+
+
+		</li>
+	</textarea>
+	<nav id="menu_mail">
+		<a href="javascript:;" onclick="Email.editMail()" class="button orange">写邮件</a>
+		<ul class="list list-active list-ico" id="mailCat">
+			<li id="inbox"> <a href="view/mail/mail.html"><i class="ao-inbox"></i>收件箱</a> </li>
+			<li> <a href="view/mail/mailtodo.html"><i class="ao-mark"></i>待办邮件</a> </li>
+			<!--
+			<li> <a href="#mail" onclick="Email.loadList('draft')"><i class="ao-draft"></i>草稿箱</a> </li>
+			-->
+			<li> <a href="view/mail/mailsend.html"><i class="ao-send"></i>已发送</a> </li>
+			<li> <a href="view/mail/maildel.html"><i class="ao-trash"></i>已删除</a> </li>
+			<li class="divider">我的文件夹</li>
+			<textarea id="mailCatTpl" class="hideim">
+				<li <%=classname%>> <a href="javascript:;" onclick="Email.loadList(<%=boxid%>)"><i class="o-folder"></i> <%=name%></a> </li>
+			</textarea>
+		</ul>
+	</nav>
+	<script>
+	(function(){
+		$LAB.script("js/mail/mail.js")
+		.wait(function(){
+			MailInbox.init();
+		})
+		// $LAB.script("js/slide.js")
+		// .wait(function(){
+		// 	new Slide("mailList", { selector: "li > a", distance: 80 });
+		// })
+	})();
+	</script>
+</div>

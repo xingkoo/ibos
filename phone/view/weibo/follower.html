@@ -1,0 +1,32 @@
+<div id="weibo_follower" class="panel" data-title="全部粉丝" data-nav="none">
+	<div>
+		<ul class="list wb-user-list" id="wb_follow_list"></ul>
+	</div>
+	<textarea id="wb_follow_item_tpl" class="hideim">
+		<% var user = app.getUser(uid); %>
+		<li>
+			<div class="media">
+				<div class="media-costar avatar">
+					<img src="<%= app.getAvatar(uid) %>">
+				</div>
+				<div class="media-body">
+					<h4 class="title"><%= user.realname %></h4>
+					<p><%= user.ibo %></p>
+				</div>
+				<% if(following == 1) { %> 
+					<a href="javascript:;" class="wb-user-btn" data-evt="unfollowFromList" data-param='{"uid": <%= uid %>}'>
+						<% if(follower == 1) {%>
+						<i class="ao22 ao-mutual-gray"></i>
+						<% } else { %>
+						<i class="ao22 ao-ok-gray"></i>
+						<% } %>
+					</a>
+				<% } else { %>
+					<a href="javascript:;" class="wb-user-btn" data-evt="followFromList" data-param='{"uid": <%= uid %>}'>
+						<i class="ao22 ao-plus-green"></i>
+					</a>
+				<% } %>
+			</div>				
+		</li>
+	</textarea>
+</div>

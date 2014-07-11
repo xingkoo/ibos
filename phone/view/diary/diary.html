@@ -1,0 +1,40 @@
+<div title="我的日志" id="diary" class="panel" data-header="header_diary" data-footer="none" data-nav="menu_diary">
+	<header id="header_diary">
+		<a onclick='af.ui.toggleSideMenu()' class='button ao-menu'></a>
+		<h1>工作日志</h1>
+		<a onclick="app.goHome();" class='button ao-home'></a>
+	</header>
+
+	<ul class="list list-active" id="diaryList"></ul>
+	<textarea id="diaryListTpl" style="display:none;">
+		<li>
+			<a href="javascript:;" onclick="diary.loadDiary(<%=diaryid%>)" class="media ">
+				<div class="avatar">
+					<img src="<%=app.defaultUrl%>/<%=app.getUser(uid)["avatar_small"]%>">
+				</div>
+				<div class="media-body brief">
+					<h4><%=core.toDatetime(diarytime,"cn")%></h4>
+					<div class="content"><%=content%></div>
+					<time class="time"><%=core.toDatetime(addtime)%></time>
+				</div>
+			</a>
+		</li>
+	</textarea>
+	 
+	<nav id="menu_diary">
+		<a href="javascript:;" onclick="diary.addDiary()" class="button orange">写日志</a>
+		<ul class="list list-active list-ico" id="diaryCat">
+			<li> <a href="#diary" onclick="diary.loadList(0)"><i class="ao-user"></i>我的日志</a> </li>
+			<li> <a href="#diary_comment_list" onclick="diary.loadReview()"><i class="ao-appraise"></i>日志评阅</a> </li>
+			<!--<li> <a href="#diary" onclick="diary.loadShare()"><i class="ao-share"></i>共享日志</a> </li>-->
+			<li> <a href="#diary_attention_list" onclick="diary.loadAttention()"><i class="ao-star"></i>已关注日志</a> </li>
+			
+		</ul>
+		<textarea id="diaryCatTpl" style="display:none;">
+			<li><a href="#diary_comment_list" onclick="diary.loadList()"><i class="ao-appraise"></i></a></li>
+		</textarea>
+	</nav>
+	<script>
+	(function(){ loadDiary() })();
+	</script>
+</div>

@@ -1,0 +1,123 @@
+<!--<div id="weibo" class="panel" data-header="header_weibo" data-nav="none" data-tab="navbar_weibo"> -->
+	<link rel="stylesheet" href="css/weibo.css">
+	<header id="header_weibo">
+		<a href="javascript:;" data-evt="toPersonalPage" class='button ao-user'></a>
+		<h1>微博首页</h1>
+		<a href="view/weibo/publish.html" class='button ao-new'></a>
+	</header>
+	<!-- 刷新 -->
+	<div class="wb-loading" id="weibo_pulldown">
+		<img src="images/cm/loading.png" alt="读取中..." width="30" height="30">
+		<div class="wb-loading-body">
+			<strong>松开即可更新...</strong>
+			<p>最后更新: <span data-node="feedLoadTime">今天 19:35</span></p>
+		</div>
+	</div>
+	<!-- 微博列表 -->
+	<div class="wb-ct">
+		<div data-node="feedList">
+
+		</div>
+	</div>
+	<!-- 加载更多 -->
+	<div class="wb-morebar hide">
+		加载中...
+	</div>
+
+<!-- </div> -->
+<!-- Template: 微博条目 -->
+<textarea id="wb_feed_tpl" class="hideim">
+	<% var user = app.getUser(uid) || {}; %>
+	<div data-node="feedBox" class="wb-feed" data-id="<%= feedid %>" data-cache="<%= cache %>">
+		<div class="pds">
+			<!-- 个人信息 -->
+			<div class="media">
+				<div class="media-costar avatar">
+					<img src="<%= app.getAvatar(uid) %>" class="rds">
+				</div>
+				<div class="media-body">
+					<% var view = view; %>
+					<% if(view && view !== "0"  ) { %>
+						<span class="wb-feed-ex">
+							<i class="ao14 ao-flock-lgray vat"></i>
+							分组可见
+						</span>
+					<% } %>
+					<div class="wb-feed-title">
+						<h4 class="wb-feed-un"><%=user.realname%></h4>
+					</div>
+					<div class="fss xcn">
+					<% if(ctime) { %>
+						<%= core.toDatetime(ctime) %>
+						<%= from %>
+					<% } else { %>
+						发布中...
+					<% } %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% if(type === "postimage") { %>
+		<!-- 图片 -->
+		<div class="wb-feed-pic">
+			<img src="<%= app.defaultUrl + '/' + attach_url %>" onclick="appSdk.browser.show(this.src)">
+		</div>
+		<% } %>
+		<!-- 微博内容 -->
+		<% if(table === "feed") { %>
+		<div class="wb-feed-ct bdbgr" data-evt="feedDetail" data-param='{"feedId": "<%=feedid%>"}'>
+			<div class="wb-feed-ctb"><%= core.util.replaceEditorSrc(content) %></div>
+			<!-- 转发框 -->
+			<% if(type==="repost") { %>
+				<div class="wb-feed-fw">
+					<% if(api_source.type === "postimage") { %>
+					<div class="wb-feed-pic">
+						<img src="<%= app.defaultUrl + '/' + api_source.attach_url %>">
+					</div>
+					<% } %>
+					<div class="wb-feed-ct">
+						<div class="wb-feed-ctb"><%= core.util.replaceEditorSrc(api_source.feedcontent) %></div>
+					</div>
+				</div>
+			<% } %>
+			<!-- 定位
+			<div class="wb-location">
+				<i class="ao16 ao-location-gray"></i>
+				广东省广州市天河区华景路
+			</div> -->
+		</div>
+		<!-- 快速工具条 -->
+		<table class="wb-quick-toolbar bggrl rdub sep ">
+			<tr>
+				<!-- 评论 -->
+				<td href="javascript:;" data-evt="toFeedComment" data-param='{ "feedId": <%= feedid %> }' class="cmflex-item cmflex-singlerow xca">
+					<i class="ao16 ao-comment-gray"></i>
+					<%= commentcount %>
+				</td>
+				<!-- 转发 -->
+				<td href="javascript:;" data-evt="toFeedForward" data-param='{ "feedId": <%= feedid %> }' class="cmflex-item cmflex-singlerow xca">
+					<i class="ao16 ao-forward-gray"></i>
+					<%= repostcount %>
+				</td>
+				<!-- 赞 -->
+				<td href="javascript:;" data-evt="feedDigg" data-param='{ "feedId": <%= feedid %> }' class="cmflex-item cmflex-singlerow xca">
+					<% if (false) { %>
+					<i class="ao16 ao-digg-orange"></i>
+					<span class="xco"><%= diggcount %></span>
+					<% } else { %>
+					<i class="ao16 ao-digg-gray"></i>
+					<span><%= diggcount %></span>
+					<% } %>
+				</td>
+			</tr>
+		</table>
+		<!-- 动态 -->
+		<% } else { %>
+			<div class="wb-feed-ct wb-oafeed-ct">
+				<h3 class="wb-oafeed-title"><%= api_source.subject %></h3>
+				<div class="wb-feed-ctb"><%= core.util.replaceEditorSrc(api_source.content) %></div>
+			</div>
+		<% } %>
+	</div>
+</textarea>
+

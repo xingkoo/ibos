@@ -1,0 +1,40 @@
+<div id="news" class="panel" data-footer="none" data-title="信息中心" data-header="header_news" data-nav="menu_news">
+	<header id="header_news">
+		<a onclick='af.ui.toggleSideMenu()' class='button ao-menu'></a>
+		<h1 id="title_news">信息中心</h1>
+		<a onclick="app.goHome();" class='button ao-home'></a>
+	</header>
+	<div style="overflow: visible; height: 0px; width: 100%; display: block;">
+	<div id="webslider_pulldown" class="afscroll_refresh" style="position: relative; height: 60px; text-align: center; line-height: 60px; font-weight: bold; top: -60px;">Pull to Refresh</div>
+	</div>
+	<div class="search-bar">
+		<input type="search" placeholder="搜索" name="newsSearchInput" id="newsSearchInput" onchange="" onblur="news.search(this.value)" />
+	</div>
+	<ul class="list list-active multi" id="newsList"></ul>
+	<textarea style="display:none;" type="text/ibos-template" id="newsListTpl">
+		<li <%if(!readstatus){%>class="new"<%}%>>
+			<time><%=core.toDatetime(addtime)%></time>
+			<a href="#news_view" onclick="news.loadNews(<%=articleid%>,this)"><%=subject%>
+				<p class="xcn"><%=content%></p>
+			</a>
+		</li>
+	</textarea>
+	<nav id="menu_news">
+		<ul class="list list-active list-ico">
+			<li> 信息中心 </li>
+			<li> <a href="#news" onclick="news.loadList(0, null, '已发布')"><i class="ao-news"></i>已发布</a> </li>
+			<li> <a href="#news" onclick="news.loadList(-1, null, '未读')"><i class="ao-unread"></i>未读</a> </li>
+			<li> <a href="#news" onclick="news.loadList(-2, null, '已读')"><i class="ao-read"></i>已读</a> </li>
+		</ul>
+		<ul class="list list-active list-ico"><li class="divider">分类查看</li></ul>
+		<ul class="list list-active list-ico" id="newsCat"></ul>
+		<!--
+		<textarea style="display:none" id="newsCatTpl">
+			<li <%=classname%>> <a href="#news" onclick="news.loadList(<%=catid%>, null, '<%=name%>')"><i class="ao-file"></i><%=name%></a> </li>
+		</textarea>
+		-->
+	</nav>
+	<script>
+		(function(){ loadNews(); })();
+	</script>
+</div>

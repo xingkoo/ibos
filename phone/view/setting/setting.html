@@ -1,0 +1,60 @@
+<header id="header_setting">
+	<h1>个人设置</h1>
+</header>
+<div class="pdhs" id="settingContent">
+</div>
+
+<textarea id="settingTpl" style="display:none;">
+	<div class="well pdz">
+		<div class="profilePanel" onclick="$.ui.loadContent('setting_profile');setup.loadProfile();">
+			<div class="avatar">
+				<img src="<%=app.defaultUrl%>/<%=avatar_middle%>" alt=""></div>
+			<h2><%=realname%></h2>
+			<span><%=deptname%></span>
+		</div>
+		<ul class="vlist bggr">
+			<li>
+				<h3><%=following_count%></h3>
+				关注
+			</li>
+			<li>
+				<h3><%=follower_count%></h3>
+				粉丝
+			</li>
+			<li>
+				<h3><%=weibo_count%></h3>
+				微博
+			</li>
+			<li>
+				<h3><%=credits%></h3>
+				积分
+			</li>
+		</ul>
+	</div>
+	<ul class="list list-active inset">
+		<li>
+			<a href="#netSetting">网络设置</a>
+		</li>
+<!-- 		<li>
+			<a href="#">提醒设置</a>
+		</li> -->
+	</ul>
+	<ul class="list list-active inset">
+		<li>
+			<input id="ibos_switch1" type="checkbox" name="ibos_switch1" value="1" checked="" class="toggle">					
+			<label for="ibos_switch1" data-on="ON" data-off="OFF" onclick="getpush()">
+				<span class=""></span>
+			</label>
+			<span class="nochevron">绑定当前手机</span>
+		</li>
+		<li>
+			<a href="#setting_password">密码设置</a>
+		</li>
+	</ul>
+<!-- 	<ul class="list list-active inset">
+		<li>
+			<a href="#">关于我们</a>
+		</li>
+	</ul> -->
+	<a class="button button-block red large primary" onClick="app.logout()">退出登录</a>
+</textarea>

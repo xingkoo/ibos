@@ -1,0 +1,53 @@
+<div id="profileContent">
+</div>
+<textarea id="profileTpl" style="display:none;">
+	<form id="formImg" action="<%=app.appUrl%>/setting/update" method="post" target="hidden_frame" onsubmit="setup.saveOK()">
+		<div class="profile">
+			<div class="avatar">
+				<a class="avatarBtn" onClick="setup.takePicture().then(setup.uploadPicture).then(setup.reloadAvatar).then(setup.deletePictureFromCache);">编辑</a>
+				<img id="myAvatar" onClick="setup.getAvatar()" src="<%=app.defaultUrl%>/<%=avatar_big%>">
+			</div>
+		</div>
+		<div class="pds">
+			<h3>基本信息</h3>
+			<ul class="list inset">
+				<li class="control-group">
+					<label for="">姓名</label>
+					<div class="controls">
+						<input type="text" value="<%=realname%>">
+					</div>
+				</li>
+				<li class="control-group">
+					<label for="">生日</label>
+					<div class="controls">
+						<input type="date" name="birthday" value="<%=core.toDatetime(birthday,"d")%>">
+					</div>
+				</li>
+				<li class="control-group">
+					<label for="">个人简介</label>
+					<div class="controls">
+						<input type="text" name="bio" value="<%=bio%>">
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pds">
+			<h3>联系方式</h3>
+			<ul class="list inset">
+				<li class="control-group">
+					<label for="">手机</label>
+					<div class="controls">
+						<input type="text" name="mobile" value="<%=mobile%>" >
+					</div>
+				</li>
+				<li class="control-group">
+					<label for="">邮箱</label>
+					<div class="controls">
+						<input type="text" name="email" value="<%=email%>" >
+					</div>
+				</li>
+			</ul>
+			<button class="button button-block blue large primary" type="submit">保存</button>
+		</div>
+	</form>
+</textarea>

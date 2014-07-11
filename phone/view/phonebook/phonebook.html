@@ -1,0 +1,33 @@
+<!-- 此页面暂时没有作用，之后可能废弃 -->
+<div id="phonebook" class="panel" data-footer="none" data-nav="none" data-title="通讯录">
+	<div id="phonebook_content"></div>
+	<script>
+		$LAB.script("js/userselect.js", "js/letter.js")
+		.wait(function(){
+			var letterIns = new Letter({
+				prefix: "phonebook_content_"
+			});
+
+			var phonebook = new UserList('phonebook_content', app.getUserData(), {
+				tpl: "<dd id='item_<%=uid%>' data-id='<%=uid%>'><img width='30' height='30' style='vertical-align: middle' src='<%=app.defaultUrl%>/<%=avatar_small%>'> <%=realname%></dd>"
+			});
+
+			$("#phonebook_content").on("userselect", function(evt, data){
+				app.param.set("phonebookUid", data.id);
+				$.ui.loadContent("view/phonebook/phonebook_view.html", 0, 0);
+			})
+
+			$("#phonebook")
+			.off("loadpanel unloadpanel")
+			.on("loadpanel", function(){
+				letterIns = new Letter({
+					prefix: "phonebook_content_"
+				});
+			})
+			.on("unloadpanel", function(){
+				letterIns.destory();
+				letterIns = null;
+			})
+		});
+	</script>
+</div>

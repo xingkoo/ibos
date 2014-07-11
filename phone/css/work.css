@@ -1,0 +1,20 @@
+.work-handle-tab{ position: fixed; width: 100%; top: 44px; z-index: 1000;}
+/*.work-handle-mainer{ padding-top: 44px; }*/
+
+#work_handle_form_content input[type="radio"],
+#work_handle_form_content input[type="checkbox"]
+ {
+	display: inline-block;
+	margin-right: 10px;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+	background:none !important;
+}
+#work_handle_form_content input[type="radio"].checked,
+#work_handle_form_content input[type="checkbox"].checked
+ { background-color: #3497DB; }
+#afui.ibos #work_handle_form_content .controls label{	margin: 0 0 0 10px;padding: 0; }
+#afui.ibos .radio-group input[type="radio"]+label+ul{ display:none;}
+#afui.ibos .radio-group input[type="radio"]:checked+label+ul
+{ display:block;}

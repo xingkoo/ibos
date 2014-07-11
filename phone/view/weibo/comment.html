@@ -1,0 +1,21 @@
+<div id="weibo_comment" class="panel" data-header="header_weibo_comment" data-nav="none" data-footer="footer_weibo_comment">
+	<header id="header_weibo_comment">
+		<a href="javascript:;" id="backButton" class="button"></a>
+		<h1>发评论</h1>
+		<a href="javascript:;" data-evt="feedComment" class='button ao-send'></a>
+	</header>
+	<div>
+		<textarea id="wb_comment_textarea" placeholder="写评论..." class="trans-input" rows="10"></textarea>
+	</div>
+	<footer id="footer_weibo_comment" class="toolbar">
+		<a href="#"><i class="ao-face"></i></a>
+		<a href="#" data-evt="toAt" data-param='{"target": "#wb_comment_textarea"}'><i class="ao-at hide"></i></a>
+		<a href="#"><i class="ao-topic hide"></i></a>
+		<div class="wb-supernatant">
+			<div style="margin-left: 10px;">
+				<input type="checkbox" id="wb_comment_to_publish">
+				<label for="wb_comment_to_publish" class="checkbox xca">同时转发到我的微博</label>
+			</div>			
+		</div>
+	</footer>
+</div>

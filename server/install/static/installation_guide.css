@@ -1,0 +1,297 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-color:#f5f7f8;
+}
+.main{
+	width:800px;
+	margin:40px auto;
+}
+.mlg{
+	margin-left:30px;
+}
+.mlst{
+	margin-left:70px;
+}
+.mbg{
+	margin-bottom:40px;
+}
+.mr{
+	margin-right:20px;
+}
+.prs{
+	padding-right:10px;
+}
+.pls{
+	padding-left:10px;
+}
+.nht{
+	min-height:300px;
+}
+.xclg{
+	color:#b2c0d1;
+}
+.fsm{
+	font-size:16px;
+}
+.o-top-bg{
+	display: inline-block;	
+	width:800px;
+	height:160px;
+	background-image:url(guide_top_tip.png);
+	background-repeat:no-repeat;
+	background-position:0 0;
+	vertical-align: middle;
+}
+.o-installing-tip,
+.o-install-success,
+.o-install-failure{
+	display: inline-block;
+	background-repeat:no-repeat;
+	background-position:0 0;
+	vertical-align: middle;
+}
+.o-installing-tip{
+	margin:20px 0 20px 40px;
+	width:260px;
+	height:260px;
+	background-image:url(upgrade_tip.png);
+}
+.o-install-success{
+	margin:20px 20px 20px 0px;
+	width:300px;
+	height:300px;
+	background-image:url(guide_success.png);
+}
+.o-install-failure{
+	margin:20px 20px 20px 0px;
+	width:300px;
+	height:300px;
+	background-image:url(guide_failure.png);
+}
+.o-warm-tip,
+.o-normal-tip,
+.o-pack-up,
+.o-pack-down,
+.o-not-pass,
+.o-normal-pass{
+	display: inline-block;
+	background-image:url(installation.png);
+	background-repeat:no-repeat;
+	vertical-align: middle;
+}
+.o-warm-tip{
+	width:20px;
+	height:20px;
+	background-position:-20px 0;
+}
+.o-normal-tip{
+	width:20px;
+	height:20px;
+	background-position:0 0;
+}
+.o-pack-up{
+	width:16px;
+	height:16px;
+	background-position:2px -38px;
+}
+.o-pack-down{
+	width:16px;
+	height:16px;
+	background-position:-30px -38px;
+}
+.o-not-pass{
+	width:16px;
+	height:16px;
+	background-position:-20px -20px;
+}
+.o-normal-pass{
+	width:16px;
+	height:16px;
+	background-position:0 -20px;
+}
+.o-failure-tip,
+.o-success-tip,
+.o-install-tip{
+	display: inline-block;
+	background-image:url(words.png);
+	background-repeat:no-repeat;
+	vertical-align: middle;
+}
+.o-failure-tip{
+	width:280px;
+	height:30px;
+	background-position:0 -34px;
+}
+.o-success-tip{
+	width:240px;
+	height:30px;
+	background-position:0 -66px;
+}
+.o-install-tip{
+	width:285px;
+	height:30px;
+	background-position:0 0;
+}
+.check-content,
+.specific-content{
+	border:1px #e2e7f1 solid;
+	border-top:0;
+	background-color:#FFF;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 4px 4px;
+}
+.check-content{
+	padding:20px 20px 10px 20px;
+}
+.ic-divider{
+	display: inline-block;
+	position: absolute;
+	top: 10px;
+	height: 1px;
+	width: 100%;
+	background-color: #ebeef3;
+	overflow: hidden;
+}
+.check-project-title,
+.check-flie-title{
+	position: relative;
+	background-color: #FFF;
+	font-size: 16px;
+}
+.warn{
+	color: #E47B61;
+}
+.showmore{
+	position: relative;
+	padding-left: 10px;
+	background: #FFF;
+}
+.table-check>tbody>tr:first-child td,
+.table-file>tbody>tr:first-child td,
+.table-function>tbody>tr:first-child td{
+	color:#B2C0D1;
+}
+.table-check td{
+	height:15px;
+}
+.content-foot{
+	padding:10px 20px 10px 0;
+	border-top:1px #DADFE6 solid;
+	background-color:#fdfdfd;
+}
+.rate-of-progress{
+	margin:-8px 18px 0 0;
+}
+.failure-info-list li{
+	margin-bottom:20px;
+}
+.protocol-check{
+	margin:20px 0 0 20px;
+}
+.user-defined{
+	position:relative;
+	vertical-align:bottom;
+}
+.btn-install{
+	margin-left:10px;
+	width:120px;
+}
+.table-info,
+.table-module{
+	margin-bottom:0;
+	min-height:340px;
+}
+.table-info>tbody>tr>th,
+.table-module>tbody>tr>th{
+	padding:0 20px;
+	border-bottom:1px #EBEFF6 solid;
+	width:80px;
+	font-weight:400;
+	font-size:16px;
+	background-color:#F8F9FA;
+	text-align:center;	
+}
+.table-module>tbody>tr>td,
+.table-info>tbody>tr>td{
+	border-bottom:1px #ebeff6 solid;
+}
+.table-module>tbody>tr>td:last-child{
+	padding:20px 0 0 0px;
+	vertical-align:top;
+}
+.show-info{
+	margin-left:140px;
+	font-size:12px;
+}
+.show-info:hover .o-pack-down,
+.showmore:hover .o-pack-down{
+	background-position:-46px -38px;
+}
+.showmore:hover .o-pack-up{
+	background-position:-14px -38px;
+}
+.table-module .checkbox.disabled{
+	color:#82939e;
+}
+.write-tip{
+	margin-left:20px;
+	color:#C8D2DE;
+}
+.necessary-write{
+	color:#F00;
+}
+.hidden-info,
+.file-check,
+.function-check{
+	display:none;
+}
+.failure-info{
+	width:440px;
+	max-height:180px;
+	overflow-y:auto;
+}
+.progress-area{
+	margin-bottom:0px;
+}
+.nomatch-tip{
+	display:none;
+	color:#e26f50;
+}
+.nbt{
+	border-top:0;
+}
+.project-tip{
+	margin:0 0 8px 30px;
+}
+.version-info{
+	position:absolute;
+	top:134px;
+	right:10px;
+	color:#FFF;
+}
+.constraint-install{
+	display: inline-block;;
+	margin-top: 30px;
+	color:#e26f50;
+}
+.install-choose{
+	display: none;
+}
+.constraint-check{
+	margin-top: 30px;
+}
+.constraint-label{
+	float: left;
+	margin-top: 6px;
+}
+.constraint-tip{
+	float: right;
+	margin-top: 5px;
+	width: 270px;
+	color: #e26f50;
+}

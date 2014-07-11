@@ -1,0 +1,93 @@
+/*- 用户选择框样式 -*/
+
+.user-selector{ 
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+	margin: 0 -10px;
+	padding: 11px 15px; 
+	min-height: 56px;
+	background-color: #FFF;
+}
+
+.user-selector-list{ 
+	list-style: none;
+}
+.user-selector-list:after{
+	content: "";
+	display: block;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+}
+.user-selector-list li{
+	display: inline-block;
+	margin-bottom: 2px;
+	padding: 4px 6px;
+	border-radius: 4px;
+	background-color: #3497DB;
+	color: #FFF;
+	font-size: 12px;
+	line-height: 20px;
+	cursor: pointer;
+	/*float: left;*/
+	margin-right: 2px;
+}
+.user-selector-list .green{ background-color: #91CE31; }
+.user-selector-list .red{ background-color: #FA6E6E; }
+
+.user-selector-bar{ position: relative; }
+.user-selector-bar .user-selector-list{ margin-right: 32px; padding: 5px 0; line-height: 30px;}
+
+/*- 用户选择列表样式 -*/
+
+.userlist { 
+	-webkit-touch-callout: none;
+	/* margin: 0 -10px; */
+	background-color: #EBEDF0; 
+}
+.userlist dt{ padding: 4px 10px; }
+.userlist dd{
+	margin: 0;
+	padding: 11px 30px 11px 10px;
+	background-color: #FFF;
+	font-size: 16px;
+	white-space: nowrap;
+}
+.userlist dt,
+.userlist dd{
+	border-bottom: 1px solid #DFDFDF;
+}
+
+.userlist .ckb {
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .3);
+	border-radius: 10px;
+	display: inline-block;
+	margin-right: 10px;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+	background-color: #ECEDF0;
+}
+.userlist dd.checked .ckb{ background-color: #3497DB; }
+.userlist dd.checked.green .ckb{ background-color: #91CE31; }
+.userlist dd.checked.red .ckb{ background-color: #FA6E6E; }
+.userlist dd.checked.green [data-type='green']{ 
+	background-color: #EAF5D7; 
+	border-color: #C3CCB4;
+	color: #FFF; 
+}
+.userlist dd.checked.red [data-type='red']{ 
+	background-color: #F5D7D7; 
+	border-color: #CCB1B1;
+	color: #FFF;
+}
+
+.userlist-operate { float: right; }
+.userlist-operate a{
+	margin-left: 10px;
+	border-radius: 4px; 
+	padding: 2px 12px;
+	color: #B2C0D1;
+	background-color: #F8F8F8;
+	text-decoration: none;
+	border: 1px solid #B2C0D1;
+}

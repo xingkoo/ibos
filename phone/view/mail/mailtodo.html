@@ -1,0 +1,48 @@
+<div id="mail_todo" class="panel" data-footer="none" data-header="header_mail_todo" data-nav="menu_mail" data-title="待办邮件">
+	<header id="header_mail_todo">
+		<a onclick='af.ui.toggleSideMenu()' class='button ao-menu'></a>
+		<h1>待办邮件</h1>
+		<a onclick="app.goHome()" class='button ao-home'></a>
+	</header>
+	<!-- search box -->
+	<div class="search-bar">
+		<input type="search" placeholder="搜索" name="mailSearchInput" id="mailSearchInput" />				
+	</div>
+	<ul class="list list-active multi mail-list" id="mail_todo_list"></ul>
+	<!-- list template -->
+	<textarea id="mail_todo_list_tpl" class="hideim">
+		<li <%if(isread == "0"){%> class="new" <% } %> id="mail_item_<%=emailid %>">
+			<!-- 操作菜单 -->
+			<div class="list-menu mail-af-list-menu">
+				<a href="javascript:;" slide-ignore data-evt="deleteMailFormList" data-param='{"emailid": <%=emailid%>}'>
+					<i class="aoicon ao-trash"></i>
+					<p>删除</p>
+				</a>
+				<!-- <a href="javascript:;" slide-ignore>
+					<i class="aoicon ao-mark" slide-ignore ></i>
+					<p>取消待办</p>
+				</a> -->
+			</div>
+			<a href="javascript:;" onclick="Email.loadMail(<%=emailid%>,this)">
+				<time class="flr time"><%=core.toDatetime(sendtime)%></time>
+				<p class="xcd"><%=fromuser%></p>
+				<p class="<%=important == '1' ? 'xcr': 'xcn'%>"><%=subject%></p>
+				<i class="o-mail-mark"></i>
+			</a>
+		</li>
+	</textarea>
+	<script>
+
+	(function(){
+		$LAB.script("js/mail/mailtodo.js")
+		.wait(function(){
+			MailTodo.init();
+		})
+
+		// $LAB.script("js/slide.js")
+		// .wait(function(){
+		// 	new Slide("mail_todo_list", { selector: "li > a", distance: 80 });
+		// })
+	})();
+	</script>
+</div>

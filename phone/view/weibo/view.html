@@ -1,0 +1,82 @@
+<div id="weibo_view" class="panel" data-header="header_weibo_view" data-nav="none" data-tab="navbar_weibo" data-footer="footer_weibo_view">
+	<header id="header_weibo_view">
+		<a href="javascript:;" id="backButton" class="button"></a>
+		<h1>微博正文</h1>
+	</header>
+	<!-- 微博列表 -->
+	<div class="wb-ct">
+		<div>
+			<!-- 微博:图片内容 -->
+			<div class="wb-feed" id="wb_feed_view"></div>
+			<!-- 评论、赞人员列表 -->
+			<div class="wb-feed">
+				<div class="wb-comb-hd">
+					<!-- Tab -->
+					<ul class="wb-comb-tab" id="wb_comb_tab" data-node="tabContainer">
+						<li>
+							<a href="javascript:;" data-node="tab" data-tab="#wb_view_digg">
+								<span id="wb_digg_count">0</span>
+								赞
+							</a>
+						</li>
+						<li class="wb-comb-tab-sep"></li>
+						<li class="active">
+							<a href="javascript:;" data-node="tab" data-tab="#wb_view_comment">
+								<span id="wb_comment_count">0</span>
+								评论
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<div id="wb_view_comment"  data-node="tabPane">
+						<!-- 评论列表 -->
+						<ul class="wb-comb-list" id="wb_comment_list"></ul>
+					</div>
+					<div id="wb_view_digg" class="hide" data-node="tabPane">
+						<!-- 点赞人员列表  -->
+						<ul class="wb-comb-list wb-digg-list" id="wb_digg_list"></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer id="footer_weibo_view" class="toolbar">
+		<a href="#" data-evt="toFeedComment"><i class="ao-comment"></i></a>
+		<a href="#" data-evt="toFeedForward"><i class="ao-forward"></i></a>
+		<a href="#" data-evt="feedDiggFromBar" data-param='{}'><i class="ao-digg"></i></a>
+	</footer>
+	<textarea id="wb_comment_item_tpl" class="hideim">
+		<% var user = app.getUser(uid); %>
+		<li class="media" data-cid="<%= cid %>">
+			<div class="media-costar avatar">
+				<img src="<%= app.getAvatar(uid) %>" class="rds">
+			</div>
+			<div class="media-body">
+				<span class="wb-feed-ex">
+					<a href="javascript:;" class="ao22 ao-comment-gray vat" data-evt="toFeedComment" data-param='{"cid": "<%= cid %>"}'></a>
+				</span>
+				<div class="wb-feed-title">
+					<h4 class="wb-feed-un"><%= user.realname %></h4>
+				</div>
+				<div class="fss xcn mgbm">
+					<span><%= core.toDatetime(ctime) %></span>
+					<%= from %>
+				</div>
+				<div class="xca"><%= content %></div>
+			</div>
+		</li>
+	</textarea>
+	<textarea id="wb_digg_item_tpl" class="hideim">
+		<% var user = app.getUser(uid); %>
+		<li class="media">
+			<div class="media-costar avatar">
+				<img src="<%= app.getAvatar(uid) %>" class="rds">
+			</div>
+			<div class="media-body"><%= user.realname %></div>
+		</li>
+	</textarea>
+	<script>
+		app.ui.tab("#wb_comb_tab")
+	</script>
+</div>

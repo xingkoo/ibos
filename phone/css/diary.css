@@ -1,0 +1,41 @@
+/**/
+.diary-view .list, .diary-edit .list{ margin-bottom: 0; }
+.diary-view .list + .titlebar, .diary-edit .list + .titlebar{ border-top: 0 none; }
+
+#afui.ibos .list > li.diary-edit-item { padding-right: 90px; padding-left: 25px;}
+#afui.ibos .list > li.diary-edit-item .negflr{ width: 80px; position: absolute; top: 10px; right: 20px; text-align: right;}
+#afui.ibos .list > li.diary-edit-item input[type='text']{ height: 22px; margin: 0; }
+#afui.ibos .list > li.diary-edit-item:before{
+	position: absolute;
+	left: 10px;
+}
+
+
+#afui.ibos .list > li > a.diary-addone{ color: #82939E; background-color: #FDFDFD;}
+
+#afui .progress-badge{ 
+	border-radius: 4px; 
+	display: inline-block;
+	width: 50px;
+	height: 22px; 
+	line-height: 22px;
+	background-color: #91CE31; 
+	color: #FFF;
+	text-align: center;
+}
+#afui select.progress-badge{
+	margin: 0;
+	padding: 0 0 0 5px;
+	border: 0 none;
+	font-weight: 700;
+	vertical-align: middle;
+}
+
+/* 图章功能 */
+.stamp-display{ position: absolute; top: -40px; left: 0; padding: 5px 10px; height: 38px;}
+.stamp-display span{ border-radius: 4px; display: inline-block; padding: 6px 8px; background-color: #E26F50; color: #FFF; }
+.stamp-display span .aoicon{ width: 18px; height: 18px; cursor: pointer;}
+
+.content img {
+	max-width: 100% !important;
+}

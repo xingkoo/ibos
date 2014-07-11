@@ -1,0 +1,35 @@
+<div id="work_countersign" class="panel" data-header="header_work_countersign" data-footer="footer_work_countersign" data-nav="none">
+	<header id="header_work_countersign">
+		<a href="javascript:;" class='button ao-cancel' data-evt="cancelWorkSign"></a>
+		<h1>写会签</h1>
+	</header>
+	<!-- 附件列表 -->
+	<div class="pdhs">
+		<ul class="att-list" id="work_sign_attach_list"></ul>
+	</div>
+	
+	<div>
+		<textarea placeholder="请输入会签内容..." class="trans-input" id="countersign_content"></textarea>
+	</div>
+	<footer id="footer_work_countersign">
+		<div class="opbar">
+			<div class="opgroup" style="width: 60%">
+				<span class="opgroup-btn" data-evt="addWorkSignPic"><i class="aoicon ao-picture"></i></span>
+				<span class="opgroup-btn" data-evt="addWorkSignPht"><i class="aoicon ao-camera"></i></span>
+				<span class="opgroup-btn" data-evt="addWorkSignFile"><i class="aoicon ao-folder"></i></span>
+			</div>
+			<div class="op-main">
+				<button href="#" class="button blue infoot" data-evt="saveWorkSign">保存</button>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+		(function(){
+			core.autoTextarea(document.getElementById("countersign_content"));
+			$.query("#countersign_content").val(app.param.get("signContent") || "");
+			app.param.remove("signContent");
+		})();
+	</script>
+</div>
+

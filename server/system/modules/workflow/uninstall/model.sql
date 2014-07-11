@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS `{{flow_category}}`;
+DROP TABLE IF EXISTS `{{flow_type}}`;
+DROP TABLE IF EXISTS `{{flow_process}}`;
+DROP TABLE IF EXISTS `{{flow_manage_log}}`;
+DROP TABLE IF EXISTS `{{flow_timer}}`;
+DROP TABLE IF EXISTS `{{flow_version}}`;
+DROP TABLE IF EXISTS `{{flow_run_process}}`;
+DROP TABLE IF EXISTS `{{flow_run_log}}`;
+DROP TABLE IF EXISTS `{{flow_run_feedback}}`;
+DROP TABLE IF EXISTS `{{flow_run}}`;
+DROP TABLE IF EXISTS `{{flow_rule}}`;
+DROP TABLE IF EXISTS `{{flow_query_tpl}}`;
+DROP TABLE IF EXISTS `{{flow_permission}}`;
+DROP TABLE IF EXISTS `{{flow_print_tpl}}`;
+DROP TABLE IF EXISTS `{{flow_form_version}}`;
+DROP TABLE IF EXISTS `{{flow_form_type}}`;

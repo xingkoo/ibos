@@ -1,0 +1,58 @@
+<!-- Header: 消息中心 -->
+<header id="header_msg">
+	<h1>消息中心</h1>
+	<a href="javascript:;" class="button ao-new" onclick="Sms.addSms()"></a>
+</header>
+<ul class="list list-active" id="msgList">
+</ul>
+<ul class="list list-active" id="smsList" style="margin-top:-1px;">
+</ul>
+<textarea id="smsListTpl" style="display:none;">
+	<li>
+		<time><%=core.toDatetime(ctime)%></time>
+		<a href="#sms_view" onclick="Sms.loadSms(<%=listid%>);Sms.setPanel(<%=listid%>)">
+			<div class="media">
+				<div class="media-costar avatar">
+					<%if(lastmessage["touid"][0] == app.uid){%>
+						<img src="<%=app.defaultUrl%>/<%=lastmessage["user"]["avatar_small"]%>" alt="">
+					<%}else{%>
+						<img src="<%=app.defaultUrl%>/<%=touserinfo[lastmessage["touid"][0]]["avatar_middle"]%>" alt="">
+					<%}%>
+				</div>
+				<div class="media-body">
+					<%if(lastmessage["touid"][0] == app.uid){%>
+						<p><%=lastmessage["user"]["realname"]%> </p>
+					<%}else{%>
+						<p>我对 <%=touserinfo[lastmessage["touid"][0]]["realname"]%> 说：</p>
+					<%}%>
+					<p><%=lastmessage["content"]%></p>
+				</div>
+			</div>
+		</a>
+	</li>
+</textarea>
+<textarea style="display:none;" id="msgListTpl">
+	<li id="mod_<%=id%>">
+		<a href="#msg_view" onclick="msg.loadMsg('<%=id%>',this)">
+			<div class="media">
+				<div class="media-costar avatar">
+					<img src="images/ico/<%=id%>.png" alt="">
+				</div>
+				<div class="media-body">
+					<div>
+						<%=name%>
+						<time class="time flr">
+						<%if(unread>0){ %>
+							<%=core.toDatetime(newlist[0]["ctime"])%>
+						<%}else{%>
+							<%=core.toDatetime(latest["ctime"])%>
+						<%}%>
+						</time>
+					</div>
+					<span><%if(unread>0){%><%=newlist[0]["title"]%><%}else{%><%=latest["title"]%><%}%></span>
+				</div>
+			</div>
+		</a>
+		<%if(unread>0){%><span class="af-badge lr"><%=unread%></span><%}%>
+	</li>
+</textarea>

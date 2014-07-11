@@ -1,0 +1,23 @@
+/**
+ * Workflow/preivew/print
+ */
+
+html{ 
+	background: #94ACCD; 
+	background: -webkit-linear-gradient(top, #C4D5ED, #94ACCD);
+	background: -moz-linear-gradient(top, #C4D5ED, #94ACCD);
+	background: -o-linear-gradient(top, #C4D5ED, #94ACCD);
+	background: linear-gradient(top, #C4D5ED, #94ACCD);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+.ibbody{ padding-top: 0; background: transparent; }
+.header,
+.footer{ display: none; }
+
+
+@media print{
+	.rolling-bar-wrap,
+	.type-prompts{ display: none; }
+
+}

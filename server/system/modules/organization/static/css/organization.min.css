@@ -1,0 +1,3 @@
+.org-dep-table{background-color:#FFF}.org-dep-table tbody td{padding-top:10px;padding-bottom:10px;font-size:12px}.org-dep-name{color:#82939e}.org-dep-name:hover{color:#3497db;text-decoration:none}
+.org-dep-mainer{position:relative;min-height:766px;background-color:#FFF;overflow:hidden}.org-dep-card{position:absolute;top:0;right:-541px;padding:20px 60px 20px 30px;width:450px;border-left:1px solid #ebeff6;border-bottom:1px solid #ebeff6;background:#fdfdfd;z-index:10}
+.org-dep-card-fold{position:absolute;top:0;left:0;width:20px;height:100%;background:#9CF;cursor:pointer}
